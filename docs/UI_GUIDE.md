@@ -1,70 +1,70 @@
-# UI Guide
+# UI 공통 설계 가이드
 
-> **Purpose:** Define durable UI rules shared across the product. Feature-specific workflow belongs in feature specs, not here.
+> **목적:** 프로젝트 전체에서 반복 적용할 화면·디자인 규칙을 정의합니다. 특정 기능의 업무 흐름은 해당 Feature 문서에 기록합니다.
 
-## Design Principles
+## 디자인 원칙
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
-## Layout
+## 화면 레이아웃
 
-- Sidebar:
-- Content width:
-- Spacing:
-- Responsive behavior:
+- 사이드바:
+- 본문 최대 너비:
+- 여백과 간격:
+- 반응형 동작:
 
-## Navigation
+## 메뉴와 이동 규칙
 
-- 
+-
 
-## Typography
+## 글꼴 및 글자 체계
 
-- 
+-
 
-## Semantic Colors / Tokens
+## 의미별 색상과 디자인 토큰
 
-| Meaning | Token / Rule |
+| 의미 | 토큰/적용 규칙 |
 |---|---|
-| Success | |
-| Warning | |
-| Error | |
+| 성공 | |
+| 경고 | |
+| 오류 | |
 
-## Components
+## 공통 컴포넌트
 
-### Tables
+### 표(Table)
 
-- 
+-
 
-### Forms
+### 입력 폼(Form)
 
-- 
+-
 
-### Modal / Drawer
+### 모달/드로어
 
-- 
+-
 
-### Status
+### 상태 표시
 
-- 
+-
 
-## Loading / Empty / Error States
+## 로딩 / 빈 화면 / 오류 표시
 
-- 
+-
 
-## Accessibility
+## 접근성
 
-- 
+-
 
-## Responsive Rules
+## 반응형 화면 규칙
 
-- 
+-
 
-## Forbidden Patterns
+## 사용하지 않을 UI 패턴
 
-- 
+-
 
-## Reference Screens
+## 참고 화면
 
-- 
+-
