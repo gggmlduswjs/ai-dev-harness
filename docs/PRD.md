@@ -1,98 +1,98 @@
-# Product Requirements Document
+# 제품 요구사항 정의서 (PRD)
 
-> **Purpose:** Define what the product is, why it exists, who it serves, and the durable product scope. Do not put current issue status, sprint progress, or implementation details here.
+> **목적:** 제품이 무엇이며, 왜 필요한지, 누가 사용하는지, 어디까지 만들지를 설명하는 장기 정본입니다. 현재 작업 상태·마감일·구현 세부사항은 적지 않습니다.
 
-## One-line Definition
+## 한 줄 정의
 
-[This product helps **who** solve **what problem** by **what means**.]
+[이 제품은 **누구**의 **어떤 문제**를 **어떤 방법**으로 해결하는가?]
 
-## Problem
+## 해결하려는 문제
 
-- What real-world problem exists?
-- Why is it worth solving?
-- What happens if it remains unsolved?
+- 현실에서 어떤 문제가 발생하는가?
+- 이 문제를 해결해야 하는 이유는 무엇인가?
+- 해결하지 않으면 어떤 영향이 있는가?
 
-## Users / Actors
+## 사용자와 관계자
 
-| Actor | Role | Primary Goal |
+| 구분 | 역할 | 주요 목표 |
 |---|---|---|
 | | | |
 
-## Goals
+## 제품 목표
 
-- 
+-
 
-## Non-Goals
+## 만들지 않을 것 (비목표)
 
-- 
+-
 
-## Product Map
+## 전체 기능 지도
 
-### Core
+### 핵심 기능
 
-- 
+-
 
-### Supporting
+### 지원 기능
 
-- 
+-
 
-### External / Integrated Systems
+### 외부 연동
 
-- 
+-
 
-## Core Domains
+## 핵심 업무 영역 (Domain)
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
-## Core End-to-End Workflows
+## 대표 업무 흐름 (End-to-End)
 
-### Workflow 1
+### 흐름 1
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
-## Scope
+## 범위
 
-### In
+### 포함
 
-- 
+-
 
-### Out
+### 제외
 
-- 
+-
 
-## System Responsibility
+## 시스템 책임
 
-### Owns
+### 이 제품이 책임지는 것
 
-- 
+-
 
-### Does Not Own
+### 다른 시스템이 책임지는 것
 
-- 
+-
 
-## Product Principles
+## 제품 설계 원칙
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
-## Product-level Success / Completion
+## 제품 수준의 완료 기준
 
-- 
+-
 
-## Related
+## 관련 문서
 
-- Roadmap: `docs/ROADMAP.md`
-- Architecture: `docs/ARCHITECTURE.md`
-- Decisions: `docs/ADR.md`
-- UI: `docs/UI_GUIDE.md`
+- 로드맵: `docs/ROADMAP.md`
+- 아키텍처: `docs/ARCHITECTURE.md`
+- 주요 결정: `docs/ADR.md`
+- UI 규칙: `docs/UI_GUIDE.md`
 
-## Update Rule
+## 갱신 규칙
 
-Update this document when product identity, actors, durable scope, core domains/workflows, or responsibility boundaries change.
+제품의 정체성, 사용자, 장기 범위, 핵심 업무 흐름 또는 시스템 책임이 바뀔 때 수정합니다.
 
-Do **not** record current issue status, deadlines, temporary research notes, or implementation details here.
+**기록하지 않는 것:** 현재 Linear Issue, 진행률, 마감일, 임시 조사 메모, 이번 작업의 세부 구현 방법.
