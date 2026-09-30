@@ -1,40 +1,40 @@
-# Linear Issue Template
+# Linear 작업(Issue) 양식
 
-## Title
+## 제목
 
-[Short, outcome-oriented title.]
+[짧고 결과가 드러나는 제목]
 
-## Outcome
+## 기대 결과
 
-What changes when this issue is complete?
+이 작업이 끝나면 무엇이 달라져야 하는가?
 
-## Acceptance Criteria
+## 완료 조건 (AC)
 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ]
+- [ ]
+- [ ]
 
-## Context
+## 관련 맥락
 
 - PRD:
-- Domain:
-- Feature:
-- Decision:
-- Research:
-- Plan:
+- 업무 영역(Domain):
+- 기능 명세(Feature):
+- 주요 결정(ADR):
+- 조사(Research):
+- 구현 계획(Plan):
 
-## Verification
+## 검증
 
-- [ ] Relevant tests
-- [ ] Browser / E2E (if needed)
-- [ ] External re-query (if needed)
-- [ ] CI
-- [ ] Production evidence (if needed)
+- [ ] 변경과 관련된 테스트 통과
+- [ ] 브라우저/E2E 확인 (필요한 경우)
+- [ ] 외부 시스템 재조회 (필요한 경우)
+- [ ] CI 통과
+- [ ] 운영 검증 근거 확보 (필요한 경우)
 
-## Out of Scope
+## 이번 작업에서 제외할 것
 
-- 
+-
 
-## Notes
+## 참고
 
-Status, Priority, Target Date, and Dependencies belong in Linear properties, not duplicated here.
+진행 상태, 우선순위, 목표일, 의존성은 이 본문에 중복 작성하지 않고 **Linear 속성**으로 관리합니다.
