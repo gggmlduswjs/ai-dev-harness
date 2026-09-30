@@ -4,6 +4,20 @@ Bookmart, BookEcommerce 및 앞으로 만드는 프로젝트에 **동일한 문�
 
 이 저장소는 [강의 원본 하네스](https://github.com/gggmlduswjs/harness_framework)의 핵심 개념을 유지하면서 실전 프로젝트용으로 단순화·확장한 표준입니다.
 
+## 관련 저장소의 역할 — 코드 중복 금지
+
+| 역할 | 정본 | 여기에 복사하지 않을 것 |
+|---|---|---|
+| 프로젝트 초기 구조·공식 문서 양식·공통 운영 원칙 | **이 저장소 `ai-dev-harness`** | 실행 중인 제품의 현재 문서 |
+| 개발 프로세스(Brainstorming·계획·TDD·디버깅·검증) | 외부 [Superpowers](https://github.com/gggmlduswjs/superpowers) 플러그인 | 외부 스킬 본문·별도 phase 실행기 |
+| 공통 전문 스킬·공통 Hook 엔진·Eval·PC 설치 | [gg-tools](https://github.com/gggmlduswjs/gg-tools) | 플러그인 코드·설치 스크립트 |
+| 제품별 정책·전용 스킬·Hook 연결 | Bookmart / Coupang_v2 각 레포 | 프로젝트 전용 비즈니스 규칙 |
+| 현재 Project·Issue·Status·일정·우선순위 | Linear | 두 번째 실행 보드 |
+
+**이 레포는 설치 가능한 Claude 플러그인 자체가 아니라 프로젝트를 시작할 때 참고·복사하는 표준 템플릿입니다.** `gg-tools`가 이미 플러그인 배포를 담당하므로 이 저장소에 별도 마켓플레이스나 Superpowers 사본을 만들지 않습니다.
+
+기존 운영 프로젝트는 자료를 새 경로로 일괄 복사하지 않고 **현재 실제 정본에 이 표준의 논리적 역할을 대응**시킵니다. 예를 들어 Coupang_v2의 상세 계약 `docs/v2/`와 Bookmart의 현재 표준 입구는 유지하고 필요한 연결만 정리합니다.
+
 ## 개발의 기본 흐름
 
 ```text
