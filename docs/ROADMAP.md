@@ -1,69 +1,69 @@
-# Product Roadmap
+# 제품 로드맵
 
-> **Purpose:** Explain the product's WHY/WHAT sequence. Linear owns dates, priority, progress, and current execution status.
+> **목적:** 제품을 어떤 이유로 어떤 순서로 완성할지 정리합니다. 날짜·우선순위·진행 상태는 Linear가 관리합니다.
 
-## North Star
+## 장기 목표 (North Star)
 
-[What durable product state are we trying to reach?]
+[장기적으로 제품이 어떤 상태에 도달해야 하는가?]
 
-## Stage 1 — [Name]
+## 1단계 — [단계명]
 
-### Outcome
+### 기대 결과
 
-- 
+-
 
-### Scope
+### 포함 범위
 
-- 
+-
 
-### Completion Criteria
+### 완료 기준
 
-- [ ] 
+- [ ]
 
-### Next-stage Gate
+### 다음 단계로 넘어가는 조건
 
-- 
+-
 
-## Stage 2 — [Name]
+## 2단계 — [단계명]
 
-### Outcome
+### 기대 결과
 
-- 
+-
 
-### Scope
+### 포함 범위
 
-- 
+-
 
-### Completion Criteria
+### 완료 기준
 
-- [ ] 
+- [ ]
 
-### Next-stage Gate
+### 다음 단계로 넘어가는 조건
 
-- 
+-
 
-## Stage 3 — [Name]
+## 3단계 — [단계명]
 
-### Outcome
+### 기대 결과
 
-- 
+-
 
-### Scope
+### 포함 범위
 
-- 
+-
 
-### Completion Criteria
+### 완료 기준
 
-- [ ] 
+- [ ]
 
-## Dependencies
+## 단계 간 의존관계
 
-- 
+-
 
-## Out of Scope
+## 이번 로드맵에서 제외할 것
 
-- 
+-
 
-## Execution
+## 실제 실행 관리
 
-Project / Milestone / Issue / Status / Priority / Target Date are managed in Linear.
+Project·Milestone·Issue·상태·우선순위·목표일은 **Linear에서만** 관리합니다.
