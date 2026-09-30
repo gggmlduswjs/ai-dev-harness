@@ -1,75 +1,75 @@
-# Implementation Plan
+# 구현 계획서
 
-> Create this only when the implementation is complex, multi-layer, multi-day, order-sensitive, or high-risk.
+> **작성 조건:** 복잡하거나 위험한 작업, 여러 계층·여러 날이 필요한 작업, 작업 순서가 중요한 경우에만 작성합니다.
 
-## Goal
+## 목표
 
-What exactly will this implementation finish?
+이번 구현에서 정확히 무엇을 완성하는가?
 
-## Related
+## 관련 자료
 
 - Linear Issue:
-- Feature:
+- Feature 문서:
 - Research:
 - ADR:
 
-## Current State
+## 현재 상태
 
-How does the code/system behave now?
+현재 코드는 어떻게 동작하는가? 근거가 되는 파일을 함께 적습니다.
 
-## Target State
+## 목표 상태
 
-How should it behave after this change?
+변경 후 어떤 동작이 가능해야 하는가?
 
-## Constraints / Safety
+## 제약과 안전 규칙
 
-- 
+-
 
-## Affected Areas
+## 변경 예상 범위
 
-| Layer | Path / Module | Change |
+| 계층 | 경로/모듈 | 변경 내용 |
 |---|---|---|
 | | | |
 
-## Implementation Steps
+## 구현 순서
 
-### Step 1
+### 1단계
 
-- Task:
-- Files:
-- Verification:
+- 작업:
+- 수정 파일:
+- 검증 방법:
 
-### Step 2
+### 2단계
 
-- Task:
-- Files:
-- Verification:
+- 작업:
+- 수정 파일:
+- 검증 방법:
 
-## Migration / Rollback
+## 데이터 전환 및 복구 방법
 
-[Only when relevant.]
+[필요한 경우에만 작성합니다.]
 
-## Test Plan
+## 테스트 계획
 
-- Unit:
-- Integration:
-- Browser / E2E:
-- External re-query:
-- Regression:
+- 단위 테스트:
+- 통합 테스트:
+- 브라우저/E2E:
+- 외부 시스템 재조회:
+- 회귀 검증:
 
-## Acceptance Criteria
+## 완료 조건 (AC)
 
-- [ ] 
-- [ ] 
+- [ ]
+- [ ]
 
-## Risks
+## 예상 위험
 
-- 
+-
 
-## Out of Scope
+## 작업 범위에서 제외할 것
 
-- 
+-
 
-## Completion
+## 완료 후 처리
 
-After implementation, move/archive this plan according to the consuming project's convention. Do not treat a completed plan as current product truth.
+실제 구현·검증 결과를 확인한 뒤 프로젝트의 기존 관례에 따라 `_완료` 또는 보관 영역으로 이동합니다. 완료된 계획서를 현재 제품 동작의 정본으로 취급하지 않습니다.
