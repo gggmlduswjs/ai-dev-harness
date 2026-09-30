@@ -1,48 +1,48 @@
-## What
+## 변경 내용
 
-What changed?
+무엇을 수정했는가?
 
-## Why
+## 변경 이유
 
-Why is this needed?
+왜 이 작업이 필요한가?
 
-## Related
+## 관련 자료
 
 - Linear:
-- Feature / Plan:
-- ADR:
+- 기능 명세/구현 계획:
+- 주요 결정(ADR):
 
-## Changes
+## 주요 수정 사항
 
-- 
+-
 
-## Verification
+## 검증 결과
 
-- [ ] Unit
-- [ ] Integration
-- [ ] Browser / E2E
-- [ ] Lint
-- [ ] Build
-- [ ] External / production evidence (if needed)
+- [ ] 단위 테스트
+- [ ] 통합 테스트
+- [ ] 브라우저/E2E
+- [ ] 린트
+- [ ] 빌드
+- [ ] 외부 시스템/운영 검증 (필요한 경우)
 
-### Commands / Results
+### 실행 명령과 결과
 
 ```text
-[commands and key results]
+[실행한 명령과 핵심 결과]
 ```
 
-## Risk
+## 예상 위험
 
-- 
+-
 
-## Rollback
+## 문제 발생 시 되돌리는 방법
 
-- 
+-
 
-## Screenshots
+## 화면 비교 자료
 
-[For UI changes.]
+[UI 변경이 있을 때만 첨부합니다.]
 
-## Remaining
+## 남은 작업과 제한 사항
 
-- 
+-
