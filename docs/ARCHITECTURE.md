@@ -1,84 +1,84 @@
-# Architecture
+# 시스템 아키텍처
 
-> **Purpose:** Describe the current system architecture. Keep proposals and future architecture clearly separate from current truth.
+> **목적:** 현재 구현된 시스템의 구조와 책임을 설명합니다. 미래 구상이나 미승인 제안은 현재 구현 사실과 명확히 구분합니다.
 
-## System Overview
+## 시스템 개요
 
-[High-level description.]
+[전체 구조를 간단히 설명합니다.]
 
-## System Boundary
+## 시스템 책임 경계
 
-### Owns
+### 우리 시스템이 책임지는 것
 
-- 
+-
 
-### Does Not Own
+### 우리 시스템이 책임지지 않는 것
 
-- 
+-
 
-## Major Components
+## 주요 구성요소
 
-| Component | Responsibility | Data Owned |
+| 구성요소 | 책임 | 소유 데이터 |
 |---|---|---|
 | | | |
 
-## Data Flow
+## 데이터 흐름
 
 ```text
-Input → Application → Persistence / External System → Result
+입력 → 애플리케이션 → DB/외부 시스템 → 처리 결과
 ```
 
-## Data Ownership
+## 데이터 소유권
 
-- 
+-
 
-## External Systems
+## 외부 시스템 연동
 
-| System | Purpose | Direction / Contract |
+| 시스템 | 연동 목적 | 데이터 흐름/계약 |
 |---|---|---|
 | | | |
 
-## Directory / Module Map
+## 폴더 및 모듈 지도
 
 ```text
 src/
 └── ...
 ```
 
-## Failure / Recovery
+## 장애 및 복구
 
-- 
+-
 
-## Security / Safety
+## 보안 및 운영 안전
 
-- 
+-
 
-## Observability
+## 관측 및 모니터링
 
-- 
+-
 
-## Verification
+## 검증 방법
 
-- 
+-
 
-## Constraints
+## 기술적 제약
 
-- 
+-
 
-## Related ADRs
+## 관련 ADR
 
-- 
+-
 
-## Detailed Architecture
+## 상세 아키텍처
 
-If this file becomes too large, add focused documents under `docs/architecture/` and link them here. Do not duplicate the same explanation in both places.
+내용이 많아질 때만 `docs/architecture/`에 주제별 상세 문서를 만들고 이 문서에서 연결합니다. 같은 설명을 두 곳에 복제하지 않습니다.
 
-## Current vs Future
+## 현재와 미래의 구분
 
-### Current
+### 현재 구현·확인된 구조
 
-- 
+-
 
-### Proposed / Future
+### 제안 또는 향후 계획
 
-- 
+-
