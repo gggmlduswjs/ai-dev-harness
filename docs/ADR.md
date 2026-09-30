@@ -1,68 +1,68 @@
-# Architecture Decision Records
+# 주요 설계 결정 기록 (ADR)
 
-> **Purpose:** Record important decisions and why they were made. Small projects may keep decisions in this file. Larger projects may use this as an index for `docs/adr/`.
+> **목적:** 중요한 설계·기술 선택과 그 이유를 남깁니다. 작은 프로젝트는 이 파일에 직접 기록하고, 커지면 이 파일을 목차로 사용하면서 `docs/adr/`의 개별 문서에 연결합니다.
 
-## Active Decisions
+## 현재 유효한 결정 목록
 
-| ID | Decision | Status | Date | Detail |
+| 번호 | 결정 | 상태 | 결정일 | 상세 문서 |
 |---|---|---|---|---|
 | | | | | |
 
 ---
 
-# ADR Template
+# 개별 ADR 작성 양식
 
-## ADR-XXX — [Decision Title]
+## ADR-XXX — [결정 제목]
 
-**Status:** Proposed / Accepted / Superseded  
-**Date:** YYYY-MM-DD
+**상태:** 제안 / 채택 / 대체됨  
+**날짜:** YYYY-MM-DD
 
-### Context
+### 배경과 문제
 
-What problem requires a decision?
+어떤 문제 때문에 결정이 필요한가?
 
-### Decision
+### 결정 사항
 
-What was decided?
+무엇을 선택했는가?
 
-### Why
+### 선택 이유
 
-Why was this option selected?
+왜 이 대안을 선택했는가?
 
-### Alternatives Considered
+### 검토한 대안
 
-#### Option A
+#### 대안 A
 
-- Pros:
-- Cons:
+- 장점:
+- 단점:
 
-#### Option B
+#### 대안 B
 
-- Pros:
-- Cons:
+- 장점:
+- 단점:
 
-### Trade-offs
+### 장단점과 포기한 것
 
-What do we gain and what do we give up?
+무엇을 얻고 무엇을 포기했는가?
 
-### Consequences
+### 결정의 영향
 
-#### Positive
+#### 긍정적 영향
 
-- 
+-
 
-#### Negative
+#### 부정적 영향
 
-- 
+-
 
-### Migration / Follow-up
+### 전환 방법 및 후속 작업
 
-- 
+-
 
-### Evidence
+### 판단 근거
 
-- 
+-
 
-### Supersedes / Superseded By
+### 이전 결정 / 대체한 결정
 
-- 
+-
