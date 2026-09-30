@@ -1,108 +1,110 @@
-# Research
+# 조사·연구 문서
 
-> Create this only when an important decision requires information you do not yet know.
+> **작성 조건:** 중요한 결정을 내리는 데 아직 모르는 정보가 있을 때만 작성합니다. 단순한 작업마다 만들지 않습니다.
 
-## Research Question
+## 연구 질문
 
-[One specific, decision-relevant question.]
+[어떤 결정을 위해 무엇을 알아내야 하는가? 질문 하나로 작성합니다.]
 
-## Decision
+## 연구 결과로 내릴 결정
 
-What decision will this research inform?
+이 조사가 끝나면 무엇을 결정할 것인가?
 
-## Scope
+## 조사 범위
 
-### Included
+### 포함
 
-- 
+-
 
-### Excluded
+### 제외
 
-- 
+-
 
-## What We Know
+## 현재 알고 있는 사실
 
-- 
+-
 
-## What We Don't Know
+## 아직 모르는 것
 
-- 
+-
 
-## Evidence
+## 근거 자료
 
-### Official Sources
+### 공식 자료
 
-| Source | Supports | Limitation |
+| 자료 | 뒷받침하는 내용 | 한계 |
 |---|---|---|
 | | | |
 
-### Papers / Methodology
+### 논문 및 방법론
 
-- 
+-
 
-### Internal Data
+### 내부 데이터
 
-- Source:
-- Grain:
-- Period:
-- Variables:
-- Quality issues:
+- 데이터 출처:
+- 분석 단위:
+- 분석 기간:
+- 주요 변수:
+- 데이터 품질 문제:
 
-## Hypotheses
+## 가설
 
-### H1
+### 가설 1
 
-- 
+-
 
-### H2
+### 가설 2
 
-- 
+-
 
-## Method
+## 조사·검증 방법
 
-- Method:
-- Why:
-- Assumptions:
-- Limitations:
+- 방법:
+- 선택 이유:
+- 필요한 가정:
+- 방법의 한계:
 
-## Results
+## 결과
 
-- 
+-
 
-## Skeptic Review
+## 반대 검증
 
-- How could this conclusion be wrong?
-- Alternative explanations:
-- Selection bias:
-- Confounders:
-- Measurement error:
+- 현재 결론이 틀릴 수 있는 이유:
+- 다른 설명 가능성:
+- 표본 선택 편향:
+- 영향을 주는 다른 요인:
+- 측정 오류:
 
-## Conclusion
+## 결론
 
-### Supported
+### 확인한 것
 
-- 
+-
 
-### Still Unknown
+### 아직 확인하지 못한 것
 
-- 
+-
 
-### Confidence
+### 근거의 확실성
 
-Low / Medium / High
+낮음 / 보통 / 높음
 
-## Decision Outcome
+## 후속 판단
 
-- [ ] Reject
-- [ ] More Research
-- [ ] Strategy
-- [ ] Feature Candidate
-- [ ] Architecture / Engineering Decision
+- [ ] 적용하지 않음
+- [ ] 추가 조사
+- [ ] 운영 전략으로 활용
+- [ ] 제품 기능 후보로 제안
+- [ ] 아키텍처/기술 결정에 반영
 
-## Promotion
+## 공식 문서 반영
 
-What durable knowledge should be promoted to PRD / Feature / Architecture / ADR?
+장기적으로 보존할 결론은 어느 PRD·Feature·Architecture·ADR에 반영할 것인가?
 
-## Linear
+## 연결된 Linear 작업
 
-Project / Milestone / Issue:
+- Project:
+- Milestone:
+- Issue:
