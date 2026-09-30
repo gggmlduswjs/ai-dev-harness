@@ -1,75 +1,77 @@
-# Project
+# 프로젝트 안내
 
-This repository defines the shared AI-native development harness used as a reference/template for projects.
+이 저장소는 여러 프로젝트에서 공통으로 사용할 **AI 개발 하네스의 기준과 문서 양식**을 제공합니다.
 
-## Where to Look
+실제 서비스에 적용할 때는 이 파일을 프로젝트 환경과 안전 규칙에 맞게 수정해야 합니다.
 
-- Product template: `docs/PRD.md`
-- Roadmap template: `docs/ROADMAP.md`
-- Architecture template: `docs/ARCHITECTURE.md`
-- Decision template: `docs/ADR.md`
-- UI guide template: `docs/UI_GUIDE.md`
-- Research template: `.dev/research/TEMPLATE.md`
-- Plan template: `.dev/plans/TEMPLATE.md`
-- Domain / Feature / Linear templates: `templates/`
+## 필요한 정보는 어디서 찾는가?
 
-## Default Workflow
+- 제품 요구사항 양식: `docs/PRD.md`
+- 로드맵 양식: `docs/ROADMAP.md`
+- 아키텍처 양식: `docs/ARCHITECTURE.md`
+- 중요한 결정 양식: `docs/ADR.md`
+- UI 공통 규칙 양식: `docs/UI_GUIDE.md`
+- 조사 양식: `.dev/research/TEMPLATE.md`
+- 구현 계획 양식: `.dev/plans/TEMPLATE.md`
+- 업무·기능·Linear 양식: `templates/`
+
+## 기본 개발 흐름
 
 ```text
 Linear Issue
-→ Repository Context
-→ Implementation
-→ Verification
-→ PR / CI
-→ Merge
+→ 관련 저장소 문서와 코드 확인
+→ 구현
+→ 검증
+→ GitHub PR / CI
+→ 승인된 병합
 → Linear Done
 ```
 
-Escalate only when needed:
+상황에 따라 다음 절차를 추가합니다.
 
-- Important unknown → Research.
-- Complex or high-risk implementation → Plan.
-- Durable product truth → docs.
-- Repeated AI failure/risk → rule, skill, hook, agent, or eval as appropriate.
+- 중요한 정보가 부족함 → Research.
+- 구현이 복잡하거나 고위험임 → Plan.
+- 앞으로도 유효해야 할 제품 규칙 → docs.
+- AI가 같은 실수를 반복함 → 필요에 따라 Rule / Skill / Hook / Agent / Eval.
 
-## Critical Principles
+## 핵심 규칙
 
-1. Linear owns execution status.
-2. Repository docs own product and technical context.
-3. GitHub owns change evidence.
-4. Obsidian/personal notes are not repository truth.
-5. Do not create duplicate canonical sources.
-6. Do not require Research, Spec, or Plan for every issue.
-7. Do not treat an AI statement of completion as verification.
-8. Do not add harness machinery without a demonstrated repeated need.
+1. **Linear가 실행 상태의 유일한 정본**입니다.
+2. **Repository 문서가 제품과 기술 지식의 정본**입니다.
+3. **GitHub가 코드 변경과 검증 이력**을 보관합니다.
+4. 개인 Obsidian 메모를 검증 없이 프로젝트 공식 사실로 취급하지 않습니다.
+5. 같은 주제의 공식 정본을 중복 생성하지 않습니다.
+6. 모든 작업에 Research·Feature Spec·Plan을 강제하지 않습니다.
+7. AI의 완료 선언만으로 검증 완료라 판단하지 않습니다.
+8. 실제 반복 문제나 위험을 해결하지 못하는 하네스 구성요소는 만들지 않습니다.
 
-## Safety
+## 운영 안전
 
-Project-specific repositories must define their own safety constraints for:
+**실제 프로젝트**에서는 다음 항목에 대한 구체적인 허용·금지 조건을 별도로 정의해야 합니다.
 
-- production database writes
-- migrations
-- money/inventory calculations
-- destructive operations
-- external API writes
-- deployment
+- 운영 DB 쓰기
+- 마이그레이션
+- 돈·재고 계산
+- 삭제·초기화 등 파괴적 작업
+- 외부 API 쓰기
+- 배포
 
-Do not assume this template grants permission for any of them.
+이 템플릿이 어떤 운영 변경도 자동 승인하는 것은 아닙니다.
 
-## Verification
+## 검증 명령
 
-Each consuming project must define concrete commands for its stack:
+실제 프로젝트의 기술 스택에 맞춰 다음 명령을 기입합니다.
 
-- unit tests
-- integration tests
-- browser/E2E tests
-- lint/build/type checks
-- external or production verification when required
+- 단위 테스트:
+- 통합 테스트:
+- 브라우저/E2E:
+- 린트/빌드/타입 검사:
+- 외부 시스템/운영 상태 확인:
 
-## Git / PR
+## Git 및 PR
 
-Prefer small, reviewable changes. Keep documentation cleanup, feature implementation, and architecture refactors separate when practical.
+작고 검토 가능한 변경을 우선합니다. 문서 정리, 기능 개발, 대규모 구조 변경은 가능한 한 별도 작업과 PR로 구분합니다.
 
-## Harness
+## AI 하네스 구성요소
 
-Add `.claude/rules`, `.claude/skills`, `.claude/agents`, and `.claude/hooks` only when real project needs justify them.
+실제로 필요할 때에만 `.claude/rules/`, `.claude/skills/`, `.claude/agents/`, `.claude/hooks/`를 추가합니다.
