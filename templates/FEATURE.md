@@ -1,70 +1,70 @@
-# Feature — [Name]
+# 기능 명세서(Feature Spec) — [기능명]
 
-> WHAT document: define user behavior, scope, business rules, and acceptance criteria. Do not create one for every tiny bug.
+> **목적:** 이 기능이 사용자에게 무엇을 제공해야 하는지(WHAT), 무엇을 만족하면 완료인지(AC)를 기록합니다. 작은 버그마다 새 문서를 만들 필요는 없습니다.
 
-## Goal
+## 기능 목표
 
-- 
+이 기능으로 해결하려는 문제는 무엇인가?
 
-## User
+## 사용자
 
-- 
+-
 
-## Background
+## 배경
 
-- 
+-
 
-## Scope
+## 범위
 
-### In
+### 포함할 것
 
-- 
+-
 
-### Out
+### 제외할 것
 
-- 
+-
 
-## User Flow
+## 사용자 이용 흐름
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
-## Business Rules
+## 업무 규칙
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
-## Data / State
+## 데이터와 상태
 
-- 
+-
 
-## Failure / Edge Cases
+## 오류와 예외 상황
 
-- 
+-
 
-## UI / Interaction
+## 화면 및 사용자 상호작용
 
-[Only when relevant.]
+[필요한 경우에만 작성합니다.]
 
-## Acceptance Criteria
+## 완료 조건 (Acceptance Criteria)
 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ]
+- [ ]
+- [ ]
 
-## Dependencies
+## 선행 조건과 의존성
 
-- 
+-
 
-## Related
+## 관련 문서
 
-- Domain:
-- Architecture:
-- Decision:
+- 업무 영역:
+- 아키텍처:
+- 주요 결정:
 - Linear:
 
-## Non-Goals
+## 이번에 만들지 않을 것
 
-- 
+-
