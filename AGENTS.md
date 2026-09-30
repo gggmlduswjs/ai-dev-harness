@@ -1,31 +1,31 @@
-# Agent Guidance
+# AI Agent 보충 지침
 
-Read `CLAUDE.md` first. This file adds only agent-specific guidance and must not duplicate the entire project context.
+작업을 시작하기 전에 **`CLAUDE.md`를 먼저 읽습니다.** 이 파일에는 Claude/Codex 등 Agent가 공통으로 적용할 보충 지침만 작성하며, 프로젝트 설명과 안전 규칙을 중복해서 옮기지 않습니다.
 
-## Agent behavior
+## 기본 작업 원칙
 
-- Inspect existing canonical context before creating new documentation.
-- Prefer updating an existing canonical source over creating a competing document.
-- Keep research findings, product decisions, implementation plans, and production truth distinct.
-- Use the smallest workflow that safely fits the task.
-- Verify work with evidence appropriate to the risk.
-- Surface conflicts between docs, code, and runtime state instead of silently choosing one.
-- Do not create new management frameworks, registries, status systems, or ID namespaces unless explicitly required.
+- 새 문서를 만들기 전에 기존 공식 정본이 있는지 조사합니다.
+- 같은 역할의 문서를 새로 만들기보다 기존 정본 수정과 연결을 우선합니다.
+- **Research에서 발견한 내용 / 사람이 확정한 결정 / 구현 계획 / 실제 운영 상태**를 혼동하지 않습니다.
+- 작업 위험도에 맞춰 필요한 만큼만 조사·계획·검증합니다.
+- 변경 내용과 위험도에 맞는 실제 검증 근거를 남깁니다.
+- 문서와 코드, 운영 상태가 서로 다르면 하나를 추측으로 선택하지 않고 충돌을 보고합니다.
+- 명시적 요구가 없다면 새 관리체계·상태체계·ID·Registry를 만들지 않습니다.
 
-## Context discipline
+## 필요한 맥락만 읽기
 
-For a task, load only the relevant product/domain/feature/architecture/decision context. Historical and archived material is reference-only unless the task specifically needs it.
+현재 Issue와 직접 관련 있는 제품·업무·기능·구조·결정 문서만 우선 읽습니다. 과거 기록과 Archive는 해당 작업에 꼭 필요한 경우에만 참고합니다.
 
-## Completion
+## 완료 보고
 
-Report separately when relevant:
+해당 작업에 필요한 수준까지만 구분해서 보고합니다.
 
-- research complete
-- implementation complete
-- tested
-- merged
-- deployed
-- verified
-- operating
+- 조사 완료
+- 구현 완료
+- 테스트 통과
+- 병합 완료
+- 운영 배포 완료
+- 결과 검증 완료
+- 실제 운영 중
 
-Do not collapse these into a single ambiguous "done".
+이 모두를 근거 없이 하나의 '완료'로 표현하지 않습니다.
