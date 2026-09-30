@@ -1,59 +1,59 @@
-# Domain — [Name]
+# 업무 영역(Domain) — [이름]
 
-> Durable description of how the real business/domain works. This is not a screen specification.
+> **목적:** 화면과 관계없이 실제 회사 업무가 어떻게 돌아가는지 기록합니다.
 
-## Purpose
+## 이 업무의 목적
 
-- 
+-
 
-## Actors
+## 업무 관계자
 
-- 
+-
 
-## Core Concepts
+## 핵심 개념
 
-| Concept | Definition |
+| 용어 | 정의 |
 |---|---|
 | | |
 
-## Workflow
+## 실제 업무 흐름
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
-## Business Rules
+## 반드시 지켜야 하는 업무 규칙
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
-## Lifecycle / State
+## 업무 상태와 변화
 
 ```text
-State A → State B → State C
+상태 A → 상태 B → 상태 C
 ```
 
-## Inputs
+## 입력 정보
 
-- 
+-
 
-## Outputs
+## 결과 / 출력 정보
 
-- 
+-
 
-## Relationships to Other Domains
+## 다른 업무 영역과의 관계
 
-- 
+-
 
-## Edge Cases
+## 예외 상황
 
-- 
+-
 
-## Related Features
+## 관련 시스템 기능
 
-- 
+-
 
-## Open Questions
+## 확인이 필요한 사항
 
-- 
+-
