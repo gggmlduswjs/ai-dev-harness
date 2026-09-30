@@ -1,89 +1,92 @@
-# AI Dev Harness
+# AI 개발 하네스 (AI Dev Harness)
 
-AI와 함께 개발할 때 **문서·연구·계획·Harness·검증을 일관된 방식으로 관리하기 위한 공통 프로젝트 템플릿**입니다.
+Bookmart, BookEcommerce 및 앞으로 만드는 프로젝트에 **동일한 문서 체계와 AI 개발 방식**을 적용하기 위한 공통 템플릿입니다.
 
-이 저장소는 `gggmlduswjs/harness_framework`의 핵심 철학을 실전 프로젝트에 맞게 단순화·확장한 표준입니다.
+이 저장소는 [강의 원본 하네스](https://github.com/gggmlduswjs/harness_framework)의 핵심 개념을 유지하면서 실전 프로젝트용으로 단순화·확장한 표준입니다.
 
-## Core loop
+## 개발의 기본 흐름
 
 ```text
-Linear Issue
+Linear 작업(Issue)
     ↓
-Repository Context
+저장소에서 관련 문서·코드 확인
     ↓
-필요하면 Research
+모르는 것이 중요하면 Research
     ↓
-필요하면 Plan
+복잡하거나 위험하면 Plan
     ↓
-Claude / Codex
+Claude / Codex 구현
     ↓
-Code
-    ↓
-Test / Verification
+테스트 및 검증
     ↓
 GitHub PR / CI
     ↓
-Merge
+승인된 병합(Merge)
     ↓
-Linear Done
+Linear 완료(Done)
 ```
 
-## Responsibilities
+**매 작업마다 Research·Plan을 만들지 않습니다.** 필요한 경우에만 사용합니다.
 
-| System | Responsibility |
+## 도구별 책임
+
+| 도구 | 유일하게 관리하는 것 |
 |---|---|
-| Linear | Project / Milestone / Issue / Status / Priority / Target |
-| Repository | Product / Technical knowledge |
-| GitHub | Commit / PR / CI / Merge / Release evidence |
-| Obsidian | Personal notes / learning / exploratory research |
+| Linear | Project, Milestone, Issue, 진행 상태, 우선순위, 목표일 |
+| Repository | 제품과 기술의 공식 지식 |
+| GitHub | 커밋, PR, CI, 병합 및 배포 이력 |
+| Obsidian | 개인 생각, 학습, 자유로운 조사 메모 |
 
-## Project contract
+## 공통 폴더 구조
 
 ```text
 PROJECT/
-├── CLAUDE.md
-├── AGENTS.md
-├── docs/
-│   ├── PRD.md
-│   ├── ROADMAP.md
-│   ├── ARCHITECTURE.md
-│   ├── ADR.md
-│   └── UI_GUIDE.md
+├── CLAUDE.md                   # AI가 처음 읽는 프로젝트 안내서
+├── AGENTS.md                   # Codex/다른 Agent용 보충 지침
+├── docs/                       # 제품의 현재 공식 지식
+│   ├── PRD.md                  # 제품의 무엇과 왜
+│   ├── ROADMAP.md              # 제품 발전 순서
+│   ├── ARCHITECTURE.md         # 시스템 구조
+│   ├── ADR.md                  # 중요한 결정과 그 이유
+│   └── UI_GUIDE.md             # 공통 UI 규칙
 ├── .dev/
-│   ├── research/
-│   └── plans/
-├── .claude/          # add rules/skills/agents/hooks only when justified
-├── src/
-├── tests/
-└── .github/
+│   ├── research/               # 중요한 것을 모를 때만
+│   └── plans/                  # 복잡하고 위험할 때만
+├── .claude/                    # 실제 필요할 때 AI 규칙/스킬/Agent/Hook 추가
+├── src/                        # 실제 제품 코드
+├── tests/                      # 검증 코드
+└── .github/                    # PR 템플릿 및 CI/CD
 ```
 
-The five top-level documents under `docs/` are the default entry points. Larger projects may add `domains/`, `features/`, `architecture/`, `adr/`, and `reference/` only when needed.
+작은 프로젝트는 강의 원본처럼 `PRD / ARCHITECTURE / ADR / UI_GUIDE` 중심으로 시작합니다. 제품이 복잡해질 때에만 `docs/domains/`, `docs/features/`, `docs/architecture/`, `docs/adr/`, `docs/reference/`를 추가합니다.
 
-## Rules
+**이 저장소는 템플릿이라 `src/`, `tests/`, `.claude/`의 빈 폴더는 일부러 만들지 않았습니다.** 실제 프로젝트에서 필요할 때 구성합니다.
 
-1. **Linear is the execution-status SSOT.** Do not duplicate current status, priority, deadlines, or backlog in repository docs.
-2. **Repository docs are the product/technical SSOT.**
-3. **Research is optional.** Create it only when an important decision requires information you do not yet know.
-4. **Plans are optional.** Create them only for complex, multi-layer, multi-day, or high-risk implementation.
-5. **Harness grows from real repeated problems.** Do not create rules, skills, hooks, agents, or evals just to fill folders.
-6. **AI completion claims are not evidence.** Tests, CI, external re-query, runtime evidence, or human review establish completion as appropriate.
-7. **Do not reintroduce phase/step/execute.py orchestration by default.** Linear + plans + agents + GitHub delivery are the default orchestration layer.
+## 복사해서 사용할 양식
 
-## Templates
+| 목적 | 파일 |
+|---|---|
+| 제품 요구사항 | [PRD](docs/PRD.md) |
+| 제품 발전 순서 | [로드맵](docs/ROADMAP.md) |
+| 시스템 구조 | [아키텍처](docs/ARCHITECTURE.md) |
+| 주요 결정 | [ADR](docs/ADR.md) |
+| 공통 화면 설계 | [UI 가이드](docs/UI_GUIDE.md) |
+| 공식 조사 | [Research 양식](.dev/research/TEMPLATE.md) |
+| 구현 계획 | [Plan 양식](.dev/plans/TEMPLATE.md) |
+| 업무 영역 | [Domain 양식](templates/DOMAIN.md) |
+| 기능 명세 | [Feature 양식](templates/FEATURE.md) |
+| Linear 작업 | [Issue 양식](templates/LINEAR_ISSUE.md) |
+| 코드 변경 설명 | [PR 양식](.github/PULL_REQUEST_TEMPLATE.md) |
 
-- Product: `docs/PRD.md`
-- Roadmap: `docs/ROADMAP.md`
-- Architecture: `docs/ARCHITECTURE.md`
-- Decisions: `docs/ADR.md`
-- UI: `docs/UI_GUIDE.md`
-- Research: `.dev/research/TEMPLATE.md`
-- Implementation plan: `.dev/plans/TEMPLATE.md`
-- Domain: `templates/DOMAIN.md`
-- Feature: `templates/FEATURE.md`
-- Linear issue: `templates/LINEAR_ISSUE.md`
-- Pull request: `.github/PULL_REQUEST_TEMPLATE.md`
+## 반드시 지킬 원칙
 
-## Scaling rule
+1. **실행 상태는 Linear만 관리합니다.** 현재 진행률·우선순위·마감·백로그를 저장소 문서에 중복해서 적지 않습니다.
+2. **제품과 기술의 공식 지식은 저장소가 관리합니다.** 하나의 질문에는 현재 정본 하나가 있어야 합니다.
+3. **Research와 Plan은 선택 사항입니다.** 작은 버그마다 문서를 만들지 않습니다.
+4. **AI 하네스는 반복된 실수나 위험을 줄일 때만 확장합니다.** 폴더를 채우기 위해 Rule/Skill/Hook을 만들지 않습니다.
+5. **AI가 완료했다고 말하는 것만으로 완료 처리하지 않습니다.** 작업의 위험도에 맞는 테스트·CI·외부 재조회·운영 근거를 확인합니다.
+6. **강의 원본의 `phases/step/execute.py` 실행기를 기본 구조로 복원하지 않습니다.** Linear + 필요한 Plan + AI + GitHub가 실행 관리를 맡습니다.
 
-Start small. The template is a contract, not a requirement to create every possible folder. Add structure only when the project has enough complexity to justify it.
+## 적용 방법
+
+기존 프로젝트에서는 바로 폴더를 이동하거나 기존 문서를 덮어쓰지 말고 **현재 정본 → 이 공통 역할**을 먼저 대응합니다. 업무와 코드 폴더는 달라도 개발 흐름을 통일하는 것이 목적입니다.
