@@ -30,7 +30,7 @@ owner-of: CLAUDE.md를 코드처럼 운영하는 방법 (계층, 변경 규칙, 
 
 결정값(이 틀의 기준):
 - 길이는 **200줄 이하** 권장. 넘기면 `docs/`로 링크하고 낡은 항목을 지웁니다. (플러그인의 평가 기준에는 줄 수 상한이 없고 "간결함"만 있습니다. 200줄은 이 틀이 정한 값입니다.)
-- 점검 주기는 **2주마다 수동 실행**(1인 개발 기준). 팀이 커지면 조정합니다.
+- 점검 주기는 **2주마다**(1인 개발 기준). 2주가 지나면 아래 자동 알림이 뜨고, improver 실행은 수동입니다. 팀이 커지면 조정합니다.
 
 ## 3. 언제 무엇을 하는가
 
@@ -41,7 +41,18 @@ owner-of: CLAUDE.md를 코드처럼 운영하는 방법 (계층, 변경 규칙, 
 | 세션 종료 | 힘든 세션·AI가 틀린 세션이었다면 `/revise-claude-md` 한 번 |
 | 새 멤버 첫날 | clone 후 improver 1회 → 전역과 프로젝트 `CLAUDE.md` 충돌 점검 → 첫 PR로 개선 제안 |
 
-강사의 운영 예시(이 틀은 채택하지 않음, 플러그인 기능 아님·**미확인**): cron/GitHub Action으로 주기 실행해 Slack·Discord로 리포트, 컨벤션만 바뀌고 `CLAUDE.md`는 안 바뀐 PR에 bot이 코멘트(drift 감지). 필요해지면 그때 도입합니다.
+### 자동 점검 (이 틀이 기본 제공 — LLM·API 키·비용 없음)
+
+판정은 `scripts/check-claude-md.py` 한 곳이고, 두 곳에서 같이 부릅니다.
+
+- **SessionStart hook** (`.claude/hooks/claude-md-check.py`, `.claude/settings.json`에 등록): 세션을 시작·재개할 때 `CLAUDE.md`가 200줄 초과이거나 마지막 git 수정이 14일 초과면 "점검 필요" 알림을 냅니다. 정상이면 아무것도 안 냅니다. 알림은 Claude 컨텍스트로 들어갑니다(Claude Code hooks 문서: SessionStart의 stdout은 컨텍스트에 추가되고, 종료코드 0이면 세션에 영향 없음).
+- **GitHub Action** (`.github/workflows/claude-md-check.yml`): PR에서 (a) 200줄 초과면 실패, (b) `docs/`·`templates/`·`.claude/rules/`가 바뀌었는데 `CLAUDE.md` 변경이 없으면 PR 코멘트로 묻습니다(실패시키지 않음, 코멘트는 한 번만).
+
+한계: 이 장치는 **알려주기만** 합니다. `claude-md-improver`는 플러그인 스킬이라 hook·Action이 직접 호출할 수 없고, 리포트를 본 뒤 **내가 승인한 항목만** 수정합니다. 알림이 뜨면 사람이 improver를 돌립니다.
+
+선택(기본 꺼짐): cron으로 improver를 정기 실행해 Slack·Discord로 리포트하는 방식(강사 예시, 플러그인 기능 아님·**미확인**)은 이 틀에 넣지 않았습니다. 켜려면 `ANTHROPIC_API_KEY`와 호출 비용이 필요하고, 위와 같은 승인 한계가 그대로 있습니다. 필요해지면 그때 직접 구성합니다.
+
+자체 검사: `python tests/test_check_claude_md.py` (199·200줄 통과, 201줄 실패).
 
 ## 4. 점검 도구 사용법 (`claude-md-management`)
 
