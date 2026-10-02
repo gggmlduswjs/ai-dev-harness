@@ -38,6 +38,14 @@ Linear Issue
 - 앞으로도 유효해야 할 제품 규칙 → docs.
 - AI가 같은 실수를 반복함 → 필요에 따라 Rule / Skill / Hook / Agent / Eval.
 
+## 화면(UI) 작업 (Vue + Element Plus 프로젝트일 때)
+
+화면을 만들거나 고칠 때는 이 순서로 합니다. 규칙의 정본은 `docs/UI_GUIDE.md`입니다. 다른 스택이면 부품 선택 단계를 그 스택의 규칙으로 바꿉니다.
+
+1. **부품 선택** — Element Plus 공식 컴포넌트에서 고릅니다(`element-plus` 스킬).
+2. **디자인 판단** — 간격·위계·색·그림자는 `refactoring-ui` 스킬로 정해진 단계에서 고릅니다.
+3. **토큰** — 값은 토큰 파일 한 곳에서만 바꿉니다. 컴포넌트마다 스타일을 덮지 않습니다.
+
 ## 작업이 끝났을 때
 
 머지 전에 앞으로도 유효한 내용을 정본(`docs/`)으로 올리고, 끝난 설계서·계획서는 `status: Historical`로 바꿔 `docs/_archive/`로 보냅니다. 올릴 것이 없는 작업은 건너뜁니다. 절차: `docs/CONVENTIONS.md` 6장.

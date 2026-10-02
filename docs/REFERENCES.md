@@ -35,6 +35,13 @@ owner-of: 틀을 만들 때 참고한 외부 레포와 실제 반영 여부
 | [getsentry/sentry](https://github.com/getsentry/sentry) | 44,912 | 참고만 | 큰 코드베이스의 개발 환경·스크립트 분리 |
 | [kubernetes/enhancements](https://github.com/kubernetes/enhancements) | 3,964 | 참고만 | 기능 기획 문서(`keps/`)의 번호·템플릿·상태 관리 |
 
+## 프런트엔드
+
+| 레포 | ⭐ | 상태 | 내용 |
+|---|---|---|---|
+| [element-plus/element-plus](https://github.com/element-plus/element-plus) | 27,795 | **반영함** | 화면 부품 라이브러리(**Vue 3 프로젝트 한정**, MIT). 선택·토큰 규칙 → [UI_GUIDE](UI_GUIDE.md), [src/frontend/README.md](../src/frontend/README.md) |
+| [s0xDk/refactoring-ui-skill](https://github.com/s0xDk/refactoring-ui-skill) | 580 | **반영함** | 디자인 규칙 스킬(MIT). 설치 방법 → [.claude/README.md](../.claude/README.md). 별 수가 적고 개인 레포이므로 submodule로 고정해 쓰고 변경을 확인 |
+
 ## 이 틀의 원본·작업 방식
 
 | 레포 | ⭐ | 상태 | 내용 |
