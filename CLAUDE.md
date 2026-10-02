@@ -12,7 +12,7 @@
 - 중요한 결정 양식: `docs/ADR.md`
 - UI 공통 규칙 양식: `docs/UI_GUIDE.md`
 - 조사 양식: `templates/RESEARCH.md`
-- 구현 계획 양식: `templates/PLAN.md`
+- 설계서·구현 계획서: superpowers 스킬이 만든다 → 저장 위치는 아래 「superpowers 저장 위치」
 - 업무·기능·결정(ADR)·Linear 양식: `templates/` (목록: `templates/README.md`)
 - 문서·폴더 규칙(정본 하나·라벨·폴더 3원칙): `docs/CONVENTIONS.md`
 - 기존 프로젝트에 적용하는 순서: `docs/ADOPTION.md`
@@ -36,6 +36,18 @@ Linear Issue
 - 구현이 복잡하거나 고위험임 → Plan.
 - 앞으로도 유효해야 할 제품 규칙 → docs.
 - AI가 같은 실수를 반복함 → 필요에 따라 Rule / Skill / Hook / Agent / Eval.
+
+## superpowers 저장 위치
+
+superpowers 스킬의 기본 저장 위치(`docs/superpowers/…`)는 쓰지 않습니다. 정본이 둘이 되기 때문입니다.
+
+| 산출물 | 저장 위치 | 만드는 스킬 |
+|---|---|---|
+| 설계서(spec) | `docs/features/YYYY-MM-DD-기능명.md` | `brainstorming` |
+| 구현 계획서 | `.dev/plans/YYYY-MM-DD-기능명.md` | `writing-plans` |
+| 작업 장부·검토 패키지 | `.superpowers/` (git 제외) | `executing-plans` 등 |
+
+저장할 때 위 경로를 사용자 설정으로 지정하고, 맨 위에 `docs/CONVENTIONS.md`의 라벨 4줄을 붙입니다.
 
 ## 핵심 규칙
 

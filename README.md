@@ -88,7 +88,7 @@ PROJECT/
 | 개별 결정 기록 | [ADR 양식](templates/ADR.md) |
 | 공통 화면 설계 | [UI 가이드](docs/UI_GUIDE.md) |
 | 공식 조사 | [Research 양식](templates/RESEARCH.md) |
-| 구현 계획 | [Plan 양식](templates/PLAN.md) |
+| 구현 계획 | superpowers `writing-plans` → [.dev/plans/](.dev/plans/README.md) |
 | 업무 영역 | [Domain 양식](templates/DOMAIN.md) |
 | 기능 명세 | [Feature 양식](templates/FEATURE.md) |
 | Linear 작업 | [Issue 양식](templates/LINEAR_ISSUE.md) |

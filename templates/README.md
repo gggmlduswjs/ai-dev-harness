@@ -9,8 +9,9 @@
 | [DOMAIN.md](DOMAIN.md) | 업무 영역의 규칙이 PRD에 담기 어려워질 때 | `docs/domains/영역명.md` | reference |
 | [ADR.md](ADR.md) | 중요한 설계·기술 결정을 남길 때 | `docs/adr/NNNN-제목.md` (+ `docs/ADR.md` 표에 한 줄) | decision |
 | [RESEARCH.md](RESEARCH.md) | 중요한 것을 모를 때 | `.dev/research/주제.md` | research |
-| [PLAN.md](PLAN.md) | 복잡하거나 위험한 구현 전에 | `.dev/plans/작업명.md` | plan |
 | [LINEAR_ISSUE.md](LINEAR_ISSUE.md) | Linear 작업을 만들 때 | Linear (파일로 두지 않음) | — |
+
+**구현 계획서**는 양식이 없습니다. superpowers `writing-plans`가 `.dev/plans/`에 직접 만듭니다(`CLAUDE.md` 참고).
 
 **PR 양식**은 GitHub가 정해진 위치만 읽으므로 [`.github/PULL_REQUEST_TEMPLATE.md`](../.github/PULL_REQUEST_TEMPLATE.md)에 있습니다.
 
