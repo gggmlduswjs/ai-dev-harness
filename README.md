@@ -4,6 +4,8 @@ Bookmart, BookEcommerce 및 앞으로 만드는 프로젝트에 **동일한 문�
 
 이 저장소는 [강의 원본 하네스](https://github.com/gggmlduswjs/harness_framework)의 핵심 개념을 유지하면서 실전 프로젝트용으로 단순화·확장한 표준입니다.
 
+> **빈 PC에서 처음 시작한다면** [docs/guides/00-new-pc-setup.md](docs/guides/00-new-pc-setup.md)부터 보세요. 이 틀과 [gg-tools](https://github.com/gggmlduswjs/gg-tools) 두 저장소로 개발을 시작하는 순서입니다.
+
 ## 이 틀의 적용 범위
 
 | 구분 | 내용 | 적용 대상 |

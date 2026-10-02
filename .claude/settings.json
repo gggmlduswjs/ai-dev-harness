@@ -1,0 +1,24 @@
+{
+  "extraKnownMarketplaces": {
+    "gg-tools": {
+      "source": { "source": "github", "repo": "gggmlduswjs/gg-tools" }
+    }
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "gg-skills@gg-tools": true
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"${CLAUDE_PROJECT_DIR}/.claude/hooks/guardrail.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

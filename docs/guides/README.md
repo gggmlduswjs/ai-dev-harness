@@ -7,5 +7,7 @@
 
 ## 목록
 
+- [00-new-pc-setup.md](00-new-pc-setup.md) — **빈 PC에서 시작하기.** 프로그램 설치, 로그인, gg-tools 설치, 프로젝트 만들기
 - [0-start-project.md](0-start-project.md) — 새 프로젝트를 아이디어에서 첫 기능까지 시작하는 순서
 - [1-linear-and-github-issues.md](1-linear-and-github-issues.md) — Linear와 GitHub(이슈·PR)를 함께 쓰는 법
+- [2-daily-loop-and-second-brain.md](2-daily-loop-and-second-brain.md) — 하루 개발 루프, 지식을 두는 층(세컨드 브레인), 플러그인 연결
