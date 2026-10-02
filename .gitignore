@@ -1,0 +1,17 @@
+# 산출물 — 루트에 흩어지지 않게 .artifacts/ 한 곳으로
+.artifacts/*
+!.artifacts/README.md
+
+# superpowers 작업 장부(작업 중 임시)
+.superpowers/
+
+# 언어/도구 공통
+__pycache__/
+*.pyc
+node_modules/
+.env
+.env.*
+!.env.example
+*.egg-info/
+.venv/
+.DS_Store

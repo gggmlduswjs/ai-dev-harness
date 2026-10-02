@@ -43,40 +43,60 @@ Linear 완료(Done)
 PROJECT/
 ├── CLAUDE.md                   # AI가 처음 읽는 프로젝트 안내서
 ├── AGENTS.md                   # Codex/다른 Agent용 보충 지침
+├── README.md
 ├── docs/                       # 제품의 현재 공식 지식
-│   ├── PRD.md                  # 제품의 무엇과 왜
-│   ├── ROADMAP.md              # 제품 발전 순서
-│   ├── ARCHITECTURE.md         # 시스템 구조
-│   ├── ADR.md                  # 중요한 결정과 그 이유
-│   └── UI_GUIDE.md             # 공통 UI 규칙
+│   ├── PRD.md  ROADMAP.md  ARCHITECTURE.md  ADR.md  UI_GUIDE.md   # 입구 5개
+│   ├── CONVENTIONS.md          # 문서·폴더 규칙
+│   ├── ADOPTION.md             # 기존 프로젝트에 적용하는 순서
+│   ├── REFERENCES.md           # 참고한 외부 레포
+│   ├── adr/                    # 개별 결정 기록 (결정은 이 한 곳)
+│   ├── domains/                # 업무 영역
+│   ├── features/               # 기능 명세 (기획의 정본)
+│   ├── guides/                 # 따라 하는 문서 (0-start-project.md 부터)
+│   ├── reference/              # 찾아보는 문서
+│   └── _archive/               # Historical — 일상에서 읽지 않는다
 ├── .dev/
 │   ├── research/               # 중요한 것을 모를 때만
 │   └── plans/                  # 복잡하고 위험할 때만
-├── .claude/                    # 실제 필요할 때 AI 규칙/스킬/Agent/Hook 추가
-├── src/                        # 실제 제품 코드
-├── tests/                      # 검증 코드
+├── .claude/                    # agents / rules / skills / hooks — 실제 필요할 때만 채움
+├── src/
+│   ├── backend/<domain>/       # 업무별 폴더: models · services · api · tasks · tests
+│   └── frontend/               # 화면 코드
+├── tests/                      # 도메인을 가로지르는 테스트
+├── scripts/                    # 운영·CI 스크립트 (이 한 곳)
+├── templates/                  # 여러 번 복사해서 쓰는 양식 (양식은 이 한 곳)
+├── .artifacts/                 # 빌드·로그·백업·임시 출력 (git 제외)
 └── .github/                    # PR 템플릿 및 CI/CD
 ```
 
+폴더마다 안내 `README.md`가 있습니다. 규칙은 [docs/CONVENTIONS.md](docs/CONVENTIONS.md)입니다.
+
 작은 프로젝트는 강의 원본처럼 `PRD / ARCHITECTURE / ADR / UI_GUIDE` 중심으로 시작합니다. 제품이 복잡해질 때에만 `docs/domains/`, `docs/features/`, `docs/architecture/`, `docs/adr/`, `docs/reference/`를 추가합니다.
 
-**이 저장소는 템플릿이라 `src/`, `tests/`, `.claude/`의 빈 폴더는 일부러 만들지 않았습니다.** 실제 프로젝트에서 필요할 때 구성합니다.
+**`src/`·`tests/`·`.claude/`는 폴더의 역할과 이름 규칙만 안내하는 뼈대입니다.** 언어와 프레임워크는 프로젝트가 정하고, `.claude/` 내용은 반복된 실수나 위험이 생길 때 채웁니다.
 
 ## 복사해서 사용할 양식
+
+**한 번만 쓰는 문서(PRD 등 5개)는 `docs/`에서 채우고, 여러 번 만드는 문서는 [`templates/`](templates/README.md)의 양식을 복사합니다.**
 
 | 목적 | 파일 |
 |---|---|
 | 제품 요구사항 | [PRD](docs/PRD.md) |
 | 제품 발전 순서 | [로드맵](docs/ROADMAP.md) |
 | 시스템 구조 | [아키텍처](docs/ARCHITECTURE.md) |
-| 주요 결정 | [ADR](docs/ADR.md) |
+| 주요 결정 목록 | [ADR](docs/ADR.md) |
+| 개별 결정 기록 | [ADR 양식](templates/ADR.md) |
 | 공통 화면 설계 | [UI 가이드](docs/UI_GUIDE.md) |
-| 공식 조사 | [Research 양식](.dev/research/TEMPLATE.md) |
-| 구현 계획 | [Plan 양식](.dev/plans/TEMPLATE.md) |
+| 공식 조사 | [Research 양식](templates/RESEARCH.md) |
+| 구현 계획 | superpowers `writing-plans` → [.dev/plans/](.dev/plans/README.md) |
 | 업무 영역 | [Domain 양식](templates/DOMAIN.md) |
 | 기능 명세 | [Feature 양식](templates/FEATURE.md) |
 | Linear 작업 | [Issue 양식](templates/LINEAR_ISSUE.md) |
 | 코드 변경 설명 | [PR 양식](.github/PULL_REQUEST_TEMPLATE.md) |
+| 새 프로젝트 시작 순서 | [0-start-project](docs/guides/0-start-project.md) |
+| 문서·폴더 규칙 | [CONVENTIONS](docs/CONVENTIONS.md) |
+| 기존 프로젝트 적용 순서 | [ADOPTION](docs/ADOPTION.md) |
+| 참고한 외부 레포 | [REFERENCES](docs/REFERENCES.md) |
 
 ## 반드시 지킬 원칙
 

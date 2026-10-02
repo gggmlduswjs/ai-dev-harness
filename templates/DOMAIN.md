@@ -1,3 +1,9 @@
+---
+type: reference
+status: Draft
+owner-of: [이 업무 영역 하나]
+---
+
 # 업무 영역(Domain) — [이름]
 
 > **목적:** 화면과 관계없이 실제 회사 업무가 어떻게 돌아가는지 기록합니다.
