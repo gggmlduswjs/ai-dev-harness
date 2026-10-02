@@ -16,6 +16,7 @@
 - 업무·기능·결정(ADR)·Linear 양식: `templates/` (목록: `templates/README.md`)
 - 문서·폴더 규칙(정본 하나·라벨·폴더 3원칙): `docs/CONVENTIONS.md`
 - 새 프로젝트 시작 순서(아이디어 → PRD → ROADMAP → ARCHITECTURE → Linear → 첫 기능): `docs/guides/0-start-project.md`
+- Linear·GitHub 이슈 활용법(상태 정의·라벨·GitHub 연동): `docs/guides/1-linear-and-github-issues.md`
 - 기존 프로젝트에 적용하는 순서: `docs/ADOPTION.md`
 - 참고한 외부 레포: `docs/REFERENCES.md`
 
