@@ -14,6 +14,9 @@
 - 조사 양식: `.dev/research/TEMPLATE.md`
 - 구현 계획 양식: `.dev/plans/TEMPLATE.md`
 - 업무·기능·Linear 양식: `templates/`
+- 문서·폴더 규칙(정본 하나·라벨·폴더 3원칙): `docs/CONVENTIONS.md`
+- 기존 프로젝트에 적용하는 순서: `docs/ADOPTION.md`
+- 참고한 외부 레포: `docs/REFERENCES.md`
 
 ## 기본 개발 흐름
 
