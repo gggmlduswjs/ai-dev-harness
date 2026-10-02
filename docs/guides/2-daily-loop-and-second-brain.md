@@ -34,7 +34,7 @@ Linear에서 내게 할당된 이슈 중 In Progress와 Todo를 우선순위순�
 
 ## 3. 처음 한 번 설정 — 플러그인 연결
 
-이 레포 `.claude/settings.json`은 **어떤 플러그인을 쓰는지 선언**만 합니다(superpowers, gg-skills). 스킬 파일은 레포에 없습니다. 새 PC에서는 한 번만 실행합니다.
+강의의 **Team Plugin**(스킬·hook·명령을 한 묶음으로 배포하는 단위)이 우리에게는 [gg-tools](https://github.com/gggmlduswjs/gg-tools)의 `gg-skills` 플러그인입니다. 이 레포 `.claude/settings.json`은 **어떤 플러그인을 쓰는지 선언**만 합니다(superpowers, gg-skills). 스킬 파일은 레포에 없습니다. 새 PC에서는 한 번만 실행합니다.
 
 ```powershell
 gh repo clone gggmlduswjs/gg-tools ~/claude   # gg-tools는 비공개이므로 GitHub 로그인이 필요합니다
@@ -127,7 +127,6 @@ PR 양식의 "예상 위험"에 아래를 한 줄씩 적습니다: **보안 · �
 |---|---|
 | 출근길 메신저 자동 브리핑(cron) | 설정이 크고 1인 개발에 과함. 필요해지면 gg-tools에 추가 |
 | Context Intelligence (조직 전체 인덱싱) | 팀 규모가 될 때 |
-| Team Plugin 배포 | 이 틀 자체를 플러그인으로 배포할 단계가 되면 |
 | Oncall agent | ROADMAP의 운영 단계(On-call)에서 |
 
 ## 참고
