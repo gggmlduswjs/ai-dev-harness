@@ -6,6 +6,22 @@ Bookmart, BookEcommerce 및 앞으로 만드는 프로젝트에 **동일한 문�
 
 > **빈 PC에서 처음 시작한다면** [docs/guides/00-new-pc-setup.md](docs/guides/00-new-pc-setup.md)부터 보세요. 이 틀과 [gg-tools](https://github.com/gggmlduswjs/gg-tools) 두 저장소로 개발을 시작하는 순서입니다.
 
+## 관련 저장소의 역할 — 코드 중복 금지
+
+| 역할 | 정본 | 여기에 복사하지 않을 것 |
+|---|---|---|
+| 프로젝트 초기 구조·공식 문서 양식·공통 운영 원칙 | **이 저장소 `ai-dev-harness`** | 실행 중인 제품의 현재 문서 |
+| 개발 프로세스(Brainstorming·계획·TDD·디버깅·검증) | 외부 [Superpowers](https://github.com/obra/superpowers) 플러그인 | 외부 스킬 본문·별도 phase 실행기 |
+| 공통 전문 스킬·공통 hook 엔진(`guardrail`·`tdd_guard`·`secret_guard` 등)·온보딩 점검 스킬 `onboard`(`--structure`·`--catalog`·`--adopt`·`--impact`)·PC 설치 | [gg-tools](https://github.com/gggmlduswjs/gg-tools) | 플러그인 코드·hook 엔진·점검 스크립트·설치 스크립트 (이 레포의 `.claude/hooks/`는 shim만, [원칙](.claude/README.md)) |
+| 제품별 정책·전용 스킬·Hook 연결 | Bookmart / Coupang_v2 각 레포 | 프로젝트 전용 비즈니스 규칙 |
+| 현재 Project·Issue·Status·일정·우선순위 | Linear | 두 번째 실행 보드 |
+
+Superpowers는 직접 설치하지 않고 `gg-tools`의 bootstrap(`pwsh ~/claude/bootstrap.ps1`)으로 설치합니다. 마켓플레이스가 다르면 중복 설치되고 `onboard` 점검이 감지합니다.
+
+**이 레포는 설치 가능한 Claude 플러그인이 아니라 프로젝트를 시작할 때 참고·복사하는 표준 템플릿입니다.** 플러그인 배포는 `gg-tools`가 맡으므로 이 저장소에 별도 마켓플레이스나 Superpowers 사본을 만들지 않습니다.
+
+기존 운영 프로젝트는 자료를 새 경로로 일괄 복사하지 않고 **현재 실제 정본에 이 표준의 논리적 역할을 대응**시킵니다.
+
 ## 이 틀의 적용 범위
 
 | 구분 | 내용 | 적용 대상 |
