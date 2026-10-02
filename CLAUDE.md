@@ -17,6 +17,7 @@
 - 문서·폴더 규칙(정본 하나·라벨·폴더 3원칙): `docs/CONVENTIONS.md`
 - 새 프로젝트 시작 순서(아이디어 → PRD → ROADMAP → ARCHITECTURE → Linear → 첫 기능): `docs/guides/0-start-project.md`
 - Linear·GitHub 이슈 활용법(상태 정의·라벨·GitHub 연동): `docs/guides/1-linear-and-github-issues.md`
+- CLAUDE.md 운영(계층·점검 주기·점검 도구): `docs/guides/5-claude-md-ops.md`
 - 기존 프로젝트에 적용하는 순서: `docs/ADOPTION.md`
 - 참고한 외부 레포: `docs/REFERENCES.md`
 - 배경 지식·결정 이유(시험적, 필요 없으면 삭제): @_brain/wiki/index.md 먼저. 정본(Spec·ADR·Linear)은 복사하지 않고 링크
@@ -101,6 +102,8 @@ superpowers 스킬의 기본 저장 위치(`docs/superpowers/…`)는 쓰지 않
 ## Git 및 PR
 
 작고 검토 가능한 변경을 우선합니다. 문서 정리, 기능 개발, 대규모 구조 변경은 가능한 한 별도 작업과 PR로 구분합니다.
+
+- CLAUDE.md 변경은 PR로만 합니다. 변경마다 CLAUDE.md 갱신이 필요한지 확인하고, 200줄 이하를 유지합니다.
 
 ## AI 하네스 구성요소
 
