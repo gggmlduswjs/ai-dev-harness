@@ -90,8 +90,9 @@ gh repo clone gggmlduswjs/gg-tools $env:USERPROFILE\claude
 pwsh $env:USERPROFILE\claude\bootstrap.ps1
 ```
 
-- `bootstrap.ps1`이 Claude Code 플러그인(Superpowers, gg-skills 등)을 설치합니다.
-- 플러그인만 설치하며 PC 설정은 바꾸지 않습니다. 여러 번 실행해도 안전합니다.
+- `bootstrap.ps1`이 `plugins.json`에 적힌 것을 모두 설치합니다: Claude Code 플러그인(Superpowers, gg-skills, mattpocock-skills, 보안 점검 플러그인 등), 단일 스킬, 세컨드 브레인 저장소(`~\second-brain`, 비공개라 2단계의 GitHub 로그인이 필요), `lighthouse`(Node.js가 있을 때).
+- 플러그인 설치 중 일부가 실패하면 마지막에 경고로 알려 줍니다. 다시 실행해도 안전합니다(`-DryRun`을 붙이면 실행할 명령만 보여 줍니다).
+- 설치를 한눈에 확인하려면 `pwsh $env:USERPROFILE\claude\scripts\check_skill_wiring.ps1`을 실행합니다.
 - 끝나면 Claude Code를 새로 시작해야 새 스킬이 보입니다.
 
 ## 4. 프로젝트 만들기 (프로젝트마다)
@@ -139,6 +140,7 @@ Claude가 질문을 하나씩 하고, 답하면 `docs/PRD.md` 같은 기획 문�
 | `winget`을 찾을 수 없다 | Windows 10 오래된 버전. Microsoft Store에서 "앱 설치 관리자"를 업데이트 |
 | 설치 직후 `git`·`gh`·`claude`를 찾을 수 없다 | PowerShell 창을 **닫고 새로** 연다 |
 | `gh repo clone gggmlduswjs/gg-tools`가 실패 | `gh auth status`로 로그인과 인터넷을 확인하고 다시 실행 |
+| `bootstrap.ps1`이 "npm 없음" 경고 | Node.js가 없음. `winget install --id OpenJS.NodeJS.LTS -e` 후 새 창에서 다시 실행 |
 | `bootstrap.ps1`에서 `claude`를 찾을 수 없다 | Claude Code 설치 후 창을 새로 열지 않음 |
 | `bootstrap.ps1`이 마켓플레이스 추가 실패 | `gh auth status`로 로그인 확인, 인터넷 확인 후 다시 실행(여러 번 돌려도 안전) |
 | `guardrail.py --selftest`에서 "공용 엔진 없음" | gg-tools를 `~\claude`가 아닌 곳에 받음. 위치를 `$env:USERPROFILE\claude`로 |
