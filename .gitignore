@@ -15,3 +15,7 @@ node_modules/
 *.egg-info/
 .venv/
 .DS_Store
+
+# 프로젝트 위키 원문(민감 정보가 git 이력에 남지 않게). wiki 페이지만 커밋
+docs/wiki/raw/*
+!docs/wiki/raw/.gitkeep
