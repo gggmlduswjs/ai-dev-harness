@@ -12,7 +12,7 @@ owner-of: 아무것도 설치되지 않은 Windows PC에서 이 틀과 gg-tools�
 | 저장소 | 역할 | 공개 여부 |
 |---|---|---|
 | [ai-dev-harness](https://github.com/gggmlduswjs/ai-dev-harness) | **프로젝트 틀.** 문서 양식, 폴더 구조, 개발 규칙. 프로젝트마다 한 벌씩 받아 그 위에서 개발 | 공개 |
-| [gg-tools](https://github.com/gggmlduswjs/gg-tools) | **도구 모음.** Claude Code 스킬과 자동 검사(hook). **PC마다 한 번** 설치 | 비공개 (GitHub 로그인 필요) |
+| [gg-tools](https://github.com/gggmlduswjs/gg-tools) | **도구 모음.** Claude Code 스킬과 자동 검사(hook). **PC마다 한 번** 설치 | 공개 (MIT) |
 
 ```text
 PC 준비(1회) → GitHub 로그인(1회) → Claude Code 로그인(1회) → gg-tools 설치(1회) → 프로젝트 만들기(프로젝트마다) → 채팅으로 개발
@@ -21,7 +21,7 @@ PC 준비(1회) → GitHub 로그인(1회) → Claude Code 로그인(1회) → g
 ## 준비물
 
 - Windows 10 또는 11
-- **GitHub 계정** (gg-tools 저장소에 접근 권한이 있는 계정)
+- **GitHub 계정** (저장소를 받고 내 프로젝트를 올릴 때 씁니다)
 - **Claude 계정** (Claude Code를 쓸 수 있는 요금제)
 
 ## 1. 프로그램 설치 (PC에 한 번)
@@ -87,11 +87,11 @@ claude
 
 ```powershell
 gh repo clone gggmlduswjs/gg-tools $env:USERPROFILE\claude
-pwsh $env:USERPROFILE\claude\bootstrap.ps1 -SkipPcWiring
+pwsh $env:USERPROFILE\claude\bootstrap.ps1
 ```
 
 - `bootstrap.ps1`이 Claude Code 플러그인(Superpowers, gg-skills 등)을 설치합니다.
-- `-SkipPcWiring`은 **작성자 개인 PC 전용 배선**(구글 드라이브 메모리 연결, 북마트·쿠팡 개발 단축키)을 건너뜁니다. 처음 시작하는 PC에는 필요 없습니다.
+- 플러그인만 설치하며 PC 설정은 바꾸지 않습니다. 여러 번 실행해도 안전합니다.
 - 끝나면 Claude Code를 새로 시작해야 새 스킬이 보입니다.
 
 ## 4. 프로젝트 만들기 (프로젝트마다)
@@ -138,7 +138,7 @@ Claude가 질문을 하나씩 하고, 답하면 `docs/PRD.md` 같은 기획 문�
 |---|---|
 | `winget`을 찾을 수 없다 | Windows 10 오래된 버전. Microsoft Store에서 "앱 설치 관리자"를 업데이트 |
 | 설치 직후 `git`·`gh`·`claude`를 찾을 수 없다 | PowerShell 창을 **닫고 새로** 연다 |
-| `gh repo clone gggmlduswjs/gg-tools`가 "not found" | 로그인한 GitHub 계정에 gg-tools 접근 권한이 없음. 저장소 소유자에게 초대를 요청 |
+| `gh repo clone gggmlduswjs/gg-tools`가 실패 | `gh auth status`로 로그인과 인터넷을 확인하고 다시 실행 |
 | `bootstrap.ps1`에서 `claude`를 찾을 수 없다 | Claude Code 설치 후 창을 새로 열지 않음 |
 | `bootstrap.ps1`이 마켓플레이스 추가 실패 | `gh auth status`로 로그인 확인, 인터넷 확인 후 다시 실행(여러 번 돌려도 안전) |
 | `guardrail.py --selftest`에서 "공용 엔진 없음" | gg-tools를 `~\claude`가 아닌 곳에 받음. 위치를 `$env:USERPROFILE\claude`로 |

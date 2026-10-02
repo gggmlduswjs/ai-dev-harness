@@ -7,7 +7,7 @@ owner-of: 하루 개발 루프, 지식을 어디에 두는가(세컨드 브레�
 # 2. 하루 루프와 세컨드 브레인
 
 > **목적:** 이 레포를 받은 뒤 **채팅으로 말하면서 바로 개발**하는 일상 방식을 정합니다. 스킬과 hook은 이 레포에 복사하지 않고 **gg-tools 플러그인에서 가져다 씁니다**(소유권은 [gg-tools README](https://github.com/gggmlduswjs/gg-tools#자산-소유권--먼저-여기서-확인) 기준).
-> 구조: 개념은 [Claude Code 강의 Ch02·Ch05](#참고)에서 가져왔고, 아래는 우리 틀에 맞게 고른 것입니다. 강의의 11개 자산 중 이 틀에 필요한 것만 씁니다.
+> 일반적인 AI 개발 방식에서 이 틀에 필요한 것만 골랐습니다.
 
 ## 1. 한 줄 원칙
 
@@ -34,10 +34,10 @@ Linear에서 내게 할당된 이슈 중 In Progress와 Todo를 우선순위순�
 
 ## 3. 처음 한 번 설정 — 플러그인 연결
 
-강의의 **Team Plugin**(스킬·hook·명령을 한 묶음으로 배포하는 단위)이 우리에게는 [gg-tools](https://github.com/gggmlduswjs/gg-tools)의 `gg-skills` 플러그인입니다. 이 레포 `.claude/settings.json`은 **어떤 플러그인을 쓰는지 선언**만 합니다(superpowers, gg-skills). 스킬 파일은 레포에 없습니다. 새 PC에서는 한 번만 실행합니다.
+**Team Plugin**(스킬·hook·명령을 한 묶음으로 배포하는 단위)이 우리에게는 [gg-tools](https://github.com/gggmlduswjs/gg-tools)의 `gg-skills` 플러그인입니다. 이 레포 `.claude/settings.json`은 **어떤 플러그인을 쓰는지 선언**만 합니다(superpowers, gg-skills). 스킬 파일은 레포에 없습니다. 새 PC에서는 한 번만 실행합니다.
 
 ```powershell
-gh repo clone gggmlduswjs/gg-tools ~/claude   # gg-tools는 비공개이므로 GitHub 로그인이 필요합니다
+gh repo clone gggmlduswjs/gg-tools ~/claude
 pwsh ~/claude/bootstrap.ps1
 ```
 
@@ -123,13 +123,9 @@ PR 양식의 "예상 위험"에 아래를 한 줄씩 적습니다: **보안 · �
 
 ## 6. 하지 않는 것
 
-| 강의 내용 | 이 틀에서는 |
+| 일반적으로 쓰는 것 | 이 틀에서는 |
 |---|---|
 | 출근길 메신저 자동 브리핑(cron) | 설정이 크고 1인 개발에 과함. 필요해지면 gg-tools에 추가 |
 | Context Intelligence (조직 전체 인덱싱) | 팀 규모가 될 때 |
 | Oncall agent | ROADMAP의 운영 단계(On-call)에서 |
 
-## 참고
-
-- 강의 페이지는 Notion 비공개 페이지입니다. 이 문서는 강의 내용을 요약·재구성했으며 원문을 옮기지 않습니다.
-- 세컨드 브레인 구조(Schema·Wiki·Raw)는 강의가 Karpathy의 LLM Wiki 개념을 응용한 것이라고 밝힙니다. 표준 정의가 아닙니다.
