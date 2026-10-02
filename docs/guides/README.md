@@ -14,3 +14,4 @@
 - [3-when-to-use-skills.md](3-when-to-use-skills.md) — 설치된 스킬을 상황별로 언제·어떤 주기로 쓰는지
 - [4-review-and-done.md](4-review-and-done.md) — 리뷰 심각도와 행동, 완료 4단계, 배포 전 확인, 반복 실수를 규칙으로 올리는 기준
 - [5-claude-md-ops.md](5-claude-md-ops.md) — CLAUDE.md 계층, 변경·점검 규칙, claude-md-improver 사용법
+- [6-tdd-guard.md](6-tdd-guard.md) — 소스 수정 전 테스트 파일 존재를 확인하는 hook의 동작·조정·한계
