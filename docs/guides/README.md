@@ -12,3 +12,4 @@
 - [1-linear-and-github-issues.md](1-linear-and-github-issues.md) — Linear와 GitHub(이슈·PR)를 함께 쓰는 법
 - [2-daily-loop-and-second-brain.md](2-daily-loop-and-second-brain.md) — 하루 개발 루프, 지식을 두는 층(세컨드 브레인), 플러그인 연결
 - [4-review-and-done.md](4-review-and-done.md) — 리뷰 심각도와 행동, 완료 4단계, 배포 전 확인, 반복 실수를 규칙으로 올리는 기준
+- [3-when-to-use-skills.md](3-when-to-use-skills.md) — 설치된 스킬을 상황별로 언제·어떤 주기로 쓰는지
