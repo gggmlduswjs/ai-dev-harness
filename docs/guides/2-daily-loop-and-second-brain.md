@@ -49,7 +49,7 @@ pwsh ~/claude/bootstrap.ps1
 | 하네스 빈칸 점검 | `harness-audit` |
 | 토큰·비용 점검 | `improve-token-efficiency` |
 | 보안 점검 | `owasp-security-scan` |
-| 세컨드 브레인 (선택) | `wiki-ingest` · `wiki-query` · `wiki-lint` |
+| 세컨드 브레인 (선택) | `wiki-ingest` · `wiki-query` · `wiki-lint` (외부 `agentic-eng-toolkit`) |
 
 ## 4. 지식이 사는 곳 — 세컨드 브레인
 
@@ -78,7 +78,7 @@ pwsh ~/claude/bootstrap.ps1
 
 ### 구조 (3층)
 
-gg-skills의 `wiki-*` 스킬이 기대하는 구조이고, 프로젝트 안에 둔 위키도 같은 구조를 쓰면 같은 스킬이 동작합니다.
+`agentic-eng-toolkit` 플러그인의 `wiki-*` 스킬이 기대하는 구조이고(빈 틀은 [wiki-template](https://github.com/gggmlduswjs/wiki-template) 저장소의 **Use this template**로 만듭니다), 프로젝트 안에 둔 위키도 같은 구조를 쓰면 같은 스킬이 동작합니다.
 
 ```text
 second-brain/
@@ -96,7 +96,7 @@ second-brain/
 - **점검:** 가끔 `wiki-lint`로 모순·고아 페이지·깨진 링크를 찾습니다(고치기 전에 승인).
 - 마크다운과 `[[링크]]`를 쓰므로 Obsidian으로 열어 볼 수 있습니다.
 
-> ⚠️ 이 `second-brain`은 빈 틀로 막 만들었고 `wiki-*` 스킬로 실제 한 건 넣어 본 적이 없습니다. 첫 Ingest를 한 번 시험해서 스킬이 이 스키마를 따르는지 확인합니다.
+> 첫 Ingest는 `SKILL.md` 절차대로 수동으로 시험해 통과했습니다(페이지 3개, 깨진 링크 0). 스킬 자동 호출은 새 세션에서 따로 확인합니다. 스킬은 폴더를 만들지 않으므로 위키 폴더(`WIKI_SCHEMA.md`가 있는 곳)에서 Claude Code를 열어 시작합니다.
 
 ## 5. 일하는 습관 5가지
 
