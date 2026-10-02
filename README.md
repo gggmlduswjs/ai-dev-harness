@@ -64,7 +64,7 @@ PROJECT/
 │   └── frontend/               # 화면 코드
 ├── tests/                      # 도메인을 가로지르는 테스트
 ├── scripts/                    # 운영·CI 스크립트 (이 한 곳)
-├── templates/                  # 복사해서 쓰는 양식
+├── templates/                  # 여러 번 복사해서 쓰는 양식 (양식은 이 한 곳)
 ├── .artifacts/                 # 빌드·로그·백업·임시 출력 (git 제외)
 └── .github/                    # PR 템플릿 및 CI/CD
 ```
@@ -77,15 +77,18 @@ PROJECT/
 
 ## 복사해서 사용할 양식
 
+**한 번만 쓰는 문서(PRD 등 5개)는 `docs/`에서 채우고, 여러 번 만드는 문서는 [`templates/`](templates/README.md)의 양식을 복사합니다.**
+
 | 목적 | 파일 |
 |---|---|
 | 제품 요구사항 | [PRD](docs/PRD.md) |
 | 제품 발전 순서 | [로드맵](docs/ROADMAP.md) |
 | 시스템 구조 | [아키텍처](docs/ARCHITECTURE.md) |
-| 주요 결정 | [ADR](docs/ADR.md) |
+| 주요 결정 목록 | [ADR](docs/ADR.md) |
+| 개별 결정 기록 | [ADR 양식](templates/ADR.md) |
 | 공통 화면 설계 | [UI 가이드](docs/UI_GUIDE.md) |
-| 공식 조사 | [Research 양식](.dev/research/TEMPLATE.md) |
-| 구현 계획 | [Plan 양식](.dev/plans/TEMPLATE.md) |
+| 공식 조사 | [Research 양식](templates/RESEARCH.md) |
+| 구현 계획 | [Plan 양식](templates/PLAN.md) |
 | 업무 영역 | [Domain 양식](templates/DOMAIN.md) |
 | 기능 명세 | [Feature 양식](templates/FEATURE.md) |
 | Linear 작업 | [Issue 양식](templates/LINEAR_ISSUE.md) |

@@ -11,9 +11,9 @@
 - 아키텍처 양식: `docs/ARCHITECTURE.md`
 - 중요한 결정 양식: `docs/ADR.md`
 - UI 공통 규칙 양식: `docs/UI_GUIDE.md`
-- 조사 양식: `.dev/research/TEMPLATE.md`
-- 구현 계획 양식: `.dev/plans/TEMPLATE.md`
-- 업무·기능·Linear 양식: `templates/`
+- 조사 양식: `templates/RESEARCH.md`
+- 구현 계획 양식: `templates/PLAN.md`
+- 업무·기능·결정(ADR)·Linear 양식: `templates/` (목록: `templates/README.md`)
 - 문서·폴더 규칙(정본 하나·라벨·폴더 3원칙): `docs/CONVENTIONS.md`
 - 기존 프로젝트에 적용하는 순서: `docs/ADOPTION.md`
 - 참고한 외부 레포: `docs/REFERENCES.md`
