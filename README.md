@@ -52,7 +52,7 @@ PROJECT/
 │   ├── adr/                    # 개별 결정 기록 (결정은 이 한 곳)
 │   ├── domains/                # 업무 영역
 │   ├── features/               # 기능 명세 (기획의 정본)
-│   ├── guides/                 # 따라 하는 문서 (순서가 있으면 번호)
+│   ├── guides/                 # 따라 하는 문서 (0-start-project.md 부터)
 │   ├── reference/              # 찾아보는 문서
 │   └── _archive/               # Historical — 일상에서 읽지 않는다
 ├── .dev/
@@ -93,6 +93,7 @@ PROJECT/
 | 기능 명세 | [Feature 양식](templates/FEATURE.md) |
 | Linear 작업 | [Issue 양식](templates/LINEAR_ISSUE.md) |
 | 코드 변경 설명 | [PR 양식](.github/PULL_REQUEST_TEMPLATE.md) |
+| 새 프로젝트 시작 순서 | [0-start-project](docs/guides/0-start-project.md) |
 | 문서·폴더 규칙 | [CONVENTIONS](docs/CONVENTIONS.md) |
 | 기존 프로젝트 적용 순서 | [ADOPTION](docs/ADOPTION.md) |
 | 참고한 외부 레포 | [REFERENCES](docs/REFERENCES.md) |
