@@ -122,9 +122,9 @@ second-brain/
 **민감 정보 규칙**
 
 - 개인정보·인증정보·고객 데이터·인사·보안 사고는 위키에도 `raw/`에도 넣지 않습니다. 이름·연락처·금액·계정은 지우고 옮깁니다.
-- `_brain/raw/`는 `.gitignore`로 git 이력에서 제외하고, 정리된 `_brain/` 페이지(`index.md` 등)만 커밋합니다.
+- `_brain/raw/`는 `.gitignore`로 git 이력에서 제외하고, 정리된 `_brain/wiki/` 페이지(`index.md` 등)만 커밋합니다.
 
-뼈대와 규칙은 [`_brain/WIKI_SCHEMA.md`](../../_brain/WIKI_SCHEMA.md)에 있고, 4장의 `wiki-*` 스킬이 같은 구조로 동작합니다.
+뼈대와 규칙은 [`_brain/WIKI_SCHEMA.md`](../../_brain/WIKI_SCHEMA.md)에 있고, 4장의 `wiki-*` 스킬이 같은 구조로 동작합니다. 스킬(wiki-ingest 등)은 wiki-template 구조를 기준으로 하므로 `_brain/` 안에서도 `raw/` 와 `wiki/` 2층을 유지합니다.
 
 ## 5. 일하는 습관 5가지
 
