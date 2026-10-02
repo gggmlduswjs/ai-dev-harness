@@ -12,7 +12,7 @@
 
 ## 공용 스킬·hook — gg-tools 플러그인에서 가져옴
 
-공용 스킬과 hook 엔진은 **이 레포에 복사하지 않습니다.** [gg-tools](https://github.com/gggmlduswjs/gg-tools) 플러그인 한 곳에서 관리합니다(비공개 — GitHub 로그인 필요). 이 레포는 `hooks/guardrail.py`(얇은 shim)만 갖고, 판정 로직은 `~/claude/gg-skills/hooks/`의 엔진을 부릅니다.
+공용 스킬과 hook 엔진은 **이 레포에 복사하지 않습니다.** [gg-tools](https://github.com/gggmlduswjs/gg-tools) 플러그인 한 곳에서 관리합니다(공개). 이 레포는 `hooks/guardrail.py`(얇은 shim)만 갖고, 판정 로직은 `~/claude/gg-skills/hooks/`의 엔진을 부릅니다.
 
 새 PC에서 처음 한 번:
 
