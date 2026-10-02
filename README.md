@@ -104,6 +104,7 @@ PROJECT/
 | Linear 작업 | [Issue 양식](templates/LINEAR_ISSUE.md) |
 | 코드 변경 설명 | [PR 양식](.github/PULL_REQUEST_TEMPLATE.md) |
 | 새 프로젝트 시작 순서 | [0-start-project](docs/guides/0-start-project.md) |
+| Linear·GitHub 이슈 활용법 | [1-linear-and-github-issues](docs/guides/1-linear-and-github-issues.md) |
 | 문서·폴더 규칙 | [CONVENTIONS](docs/CONVENTIONS.md) |
 | 기존 프로젝트 적용 순서 | [ADOPTION](docs/ADOPTION.md) |
 | 참고한 외부 레포 | [REFERENCES](docs/REFERENCES.md) |

@@ -8,3 +8,4 @@
 ## 목록
 
 - [0-start-project.md](0-start-project.md) — 새 프로젝트를 아이디어에서 첫 기능까지 시작하는 순서
+- [1-linear-and-github-issues.md](1-linear-and-github-issues.md) — Linear와 GitHub(이슈·PR)를 함께 쓰는 법
