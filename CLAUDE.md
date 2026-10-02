@@ -18,6 +18,7 @@
 - 새 프로젝트 시작 순서(아이디어 → PRD → ROADMAP → ARCHITECTURE → Linear → 첫 기능): `docs/guides/0-start-project.md`
 - Linear·GitHub 이슈 활용법(상태 정의·라벨·GitHub 연동): `docs/guides/1-linear-and-github-issues.md`
 - CLAUDE.md 운영(계층·점검 주기·점검 도구): `docs/guides/5-claude-md-ops.md`
+- TDD guard hook(기본 꺼짐, 켜는 법·한계): `docs/guides/6-tdd-guard.md`
 - 기존 프로젝트에 적용하는 순서: `docs/ADOPTION.md`
 - 참고한 외부 레포: `docs/REFERENCES.md`
 - 배경 지식·결정 이유(시험적, 필요 없으면 삭제): @_brain/wiki/index.md 먼저. 정본(Spec·ADR·Linear)은 복사하지 않고 링크
