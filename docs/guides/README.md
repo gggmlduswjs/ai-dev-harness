@@ -11,3 +11,4 @@
 - [0-start-project.md](0-start-project.md) — 새 프로젝트를 아이디어에서 첫 기능까지 시작하는 순서
 - [1-linear-and-github-issues.md](1-linear-and-github-issues.md) — Linear와 GitHub(이슈·PR)를 함께 쓰는 법
 - [2-daily-loop-and-second-brain.md](2-daily-loop-and-second-brain.md) — 하루 개발 루프, 지식을 두는 층(세컨드 브레인), 플러그인 연결
+- [4-review-and-done.md](4-review-and-done.md) — 리뷰 심각도와 행동, 완료 4단계, 배포 전 확인, 반복 실수를 규칙으로 올리는 기준
