@@ -39,7 +39,7 @@ owner-of: 틀을 만들 때 참고한 외부 레포와 실제 반영 여부
 
 | 레포 | ⭐ | 상태 | 내용 |
 |---|---|---|---|
-| [element-plus/element-plus](https://github.com/element-plus/element-plus) | 27,795 | **반영함** | 화면 부품 라이브러리(Vue 3, MIT). 선택·토큰 규칙 → [UI_GUIDE](UI_GUIDE.md), [src/frontend/README.md](../src/frontend/README.md) |
+| [element-plus/element-plus](https://github.com/element-plus/element-plus) | 27,795 | **반영함** | 화면 부품 라이브러리(**Vue 3 프로젝트 한정**, MIT). 선택·토큰 규칙 → [UI_GUIDE](UI_GUIDE.md), [src/frontend/README.md](../src/frontend/README.md) |
 | [s0xDk/refactoring-ui-skill](https://github.com/s0xDk/refactoring-ui-skill) | 580 | **반영함** | 디자인 규칙 스킬(MIT). 설치 방법 → [.claude/README.md](../.claude/README.md). 별 수가 적고 개인 레포이므로 submodule로 고정해 쓰고 변경을 확인 |
 
 ## 이 틀의 원본·작업 방식

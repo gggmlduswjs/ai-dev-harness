@@ -10,7 +10,7 @@
 └── hooks/     자동 검사
 ```
 
-## 외부 스킬 설치 — refactoring-ui
+## 외부 스킬 설치 — refactoring-ui (화면이 있는 프로젝트)
 
 [s0xDk/refactoring-ui-skill](https://github.com/s0xDk/refactoring-ui-skill) (MIT)은 책 *Refactoring UI*의 규칙을 담은 스킬입니다. **파일을 복사해 넣지 않고** git으로 설치해야 업데이트를 추적할 수 있습니다. **폴더 이름은 반드시 `refactoring-ui`**여야 합니다(스킬 이름과 맞춤).
 

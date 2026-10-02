@@ -4,6 +4,16 @@ Bookmart, BookEcommerce 및 앞으로 만드는 프로젝트에 **동일한 문�
 
 이 저장소는 [강의 원본 하네스](https://github.com/gggmlduswjs/harness_framework)의 핵심 개념을 유지하면서 실전 프로젝트용으로 단순화·확장한 표준입니다.
 
+## 이 틀의 적용 범위
+
+| 구분 | 내용 | 적용 대상 |
+|---|---|---|
+| **어디서나 쓰는 것** | 기획 순서(PRD → ROADMAP → ARCHITECTURE/ADR → Linear), 문서 규칙(정본 하나·라벨·승격), 개발 루프, `templates/` 양식, 폴더 원칙 | 모든 프로젝트 |
+| **웹서비스에 맞춘 것** | `src/backend`·`src/frontend` 분리, 도메인 폴더의 `models services api tasks tests`, `UI_GUIDE.md` | 서버 + 화면이 있는 프로젝트 |
+| **스택 전용** | Element Plus·`refactoring-ui` 규칙 (`UI_GUIDE.md`, `CLAUDE.md`, `src/frontend/README.md`의 이름표 붙은 절) | Vue 3 + Element Plus 프로젝트 |
+
+받은 뒤 **웹서비스·스택 전용 부분이 맞지 않으면 그 부분만 바꾸거나 지웁니다.** 어디서나 쓰는 것은 그대로 둡니다.
+
 ## 개발의 기본 흐름
 
 ```text
