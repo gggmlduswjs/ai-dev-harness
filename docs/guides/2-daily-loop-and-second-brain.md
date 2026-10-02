@@ -70,7 +70,7 @@ pwsh ~/claude/bootstrap.ps1
 
 | 지식의 종류 | 자리 |
 |---|---|
-| 한 프로젝트에서만 쓰는 지식 | **그 프로젝트의 정본 자리.** Bookmart·Coupang_v2는 각 프로젝트 레포의 `docs/`, 쿠팡은 지금 `G:\내 드라이브\Obsidian. Project\쿠팡비즈니스`(그 안의 `09-Second-Brain`이 위키) |
+| 한 프로젝트에서만 쓰는 지식 | **그 프로젝트의 정본 자리**(보통 그 프로젝트 레포의 `docs/`). 정본이 레포 밖(예: 별도 문서 폴더)에 있으면 그 자리를 그대로 존중하고, 여기로 복사하지 않음 |
 | 여러 프로젝트에서 다시 쓰는 일반 지식 | **`second-brain` 레포** (GitHub 비공개, 로컬 `~/second-brain`) |
 | AI가 건드리지 않는 개인 노트(일정, 인박스, 공부) | 구글 드라이브 Obsidian |
 
@@ -78,7 +78,7 @@ pwsh ~/claude/bootstrap.ps1
 
 ### 구조 (3층)
 
-gg-skills의 `wiki-*` 스킬이 기대하는 구조이고, 쿠팡 `09-Second-Brain`도 같은 구조입니다.
+gg-skills의 `wiki-*` 스킬이 기대하는 구조이고, 프로젝트 안에 둔 위키도 같은 구조를 쓰면 같은 스킬이 동작합니다.
 
 ```text
 second-brain/
