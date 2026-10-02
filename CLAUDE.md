@@ -19,7 +19,7 @@
 - Linear·GitHub 이슈 활용법(상태 정의·라벨·GitHub 연동): `docs/guides/1-linear-and-github-issues.md`
 - 기존 프로젝트에 적용하는 순서: `docs/ADOPTION.md`
 - 참고한 외부 레포: `docs/REFERENCES.md`
-- 배경 지식·결정 이유(시험적, 필요 없으면 삭제): `docs/wiki/index.md` 먼저. 정본(Spec·ADR·Linear)은 복사하지 않고 링크
+- 배경 지식·결정 이유(시험적, 필요 없으면 삭제): @_brain/index.md 먼저. 정본(Spec·ADR·Linear)은 복사하지 않고 링크
 
 ## 기본 개발 흐름
 

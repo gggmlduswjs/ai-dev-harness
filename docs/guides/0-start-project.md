@@ -24,7 +24,7 @@ owner-of: 새 프로젝트를 아이디어에서 첫 기능 개발까지 시작�
 1. 이 저장소를 새 프로젝트 폴더로 복사합니다(clone 후 `.git`을 새로 시작하거나 GitHub의 「Use this template」).
 2. 루트 `CLAUDE.md`의 **운영 안전** 항목을 프로젝트에 맞게 채웁니다 — AI가 절대 하면 안 되는 일(운영 데이터 쓰기, 배포, 삭제 등)과 허용 조건을 정합니다.
 3. `README.md`를 프로젝트 소개로 바꿉니다.
-4. (선택·시험적) 결정 이유·회의 정리를 쌓을 생각이 없으면 `docs/wiki/`와 `CLAUDE.md`의 위키 포인터 한 줄을 지웁니다. 쓸 거면 그대로 둡니다([2-daily-loop-and-second-brain.md](2-daily-loop-and-second-brain.md) 4장).
+4. (선택·시험적) 결정 이유·회의 정리를 쌓을 생각이 없으면 `_brain/`와 `CLAUDE.md`의 위키 포인터 한 줄을 지웁니다. 쓸 거면 그대로 둡니다([2-daily-loop-and-second-brain.md](2-daily-loop-and-second-brain.md) 4장).
 
 ## 2. PRD — 무엇을, 왜 ★
 

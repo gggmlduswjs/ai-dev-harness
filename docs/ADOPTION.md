@@ -29,7 +29,7 @@ owner-of: 이미 돌아가는 프로젝트에 이 틀을 적용하는 순서
 
 ## 프로젝트 위키(선택·시험적)
 
-기존 프로젝트에는 `docs/wiki/`를 **위 단계가 끝난 뒤** 추가합니다. 슬랙·회의록 전체를 옮기지 말고 의사결정 스레드 5~10개로 시작하고, 이미 있는 정본(Spec·ADR·Linear)은 링크만 합니다. `raw/`는 반드시 `.gitignore`에 넣습니다. 필요 없으면 생략합니다(자세한 기준: [2-daily-loop-and-second-brain.md](guides/2-daily-loop-and-second-brain.md) 4장).
+기존 프로젝트에는 `_brain/`를 **위 단계가 끝난 뒤** 추가합니다. 슬랙·회의록 전체를 옮기지 말고 의사결정 스레드 5~10개로 시작하고, 이미 있는 정본(Spec·ADR·Linear)은 링크만 합니다. `raw/`는 반드시 `.gitignore`에 넣습니다. 필요 없으면 생략합니다(자세한 기준: [2-daily-loop-and-second-brain.md](guides/2-daily-loop-and-second-brain.md) 4장).
 
 ## 문서 폴더만 먼저 적용할 때의 매핑 예
 
