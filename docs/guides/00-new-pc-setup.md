@@ -134,7 +134,7 @@ Claude Code 화면에서 이렇게 말하면 됩니다.
 새 프로젝트를 시작할게. 아이디어는 "____" 이야. docs/guides/0-start-project.md 순서대로 진행해줘.
 ```
 
-Claude가 질문을 하나씩 하고, 답하면 `docs/PRD.md` 같은 기획 문서를 채웁니다. **PRD·ROADMAP·설계서·계획서·머지는 내가 승인해야 다음으로 넘어갑니다.** 승인 전에는 코드를 쓰지 않습니다. 이후 흐름은 [0-start-project.md](0-start-project.md)와 [2-daily-loop-and-second-brain.md](2-daily-loop-and-second-brain.md)를 봅니다.
+Claude가 질문을 하나씩 하고, 답하면 `docs/PRD.md` 같은 기획 문서를 채웁니다. **새 프로젝트의 필요한 기획·설계·계획은 사람이 승인하고, 구현·검증은 프로젝트가 지정한 실행 AI가 맡습니다.** 일상 작업마다 모든 문서를 만들지는 않습니다. Codex를 직접 사용할 때도 같은 계약으로 기획부터 수행할 수 있습니다. 이후 흐름은 [0-start-project.md](0-start-project.md)와 [일상 가이드의 작업 절차](2-daily-loop-and-second-brain.md#작업-절차)를 봅니다. 머지·운영 변경 승인은 별도입니다.
 
 ## 6. 잘 설치됐는지 확인
 
