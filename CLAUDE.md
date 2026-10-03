@@ -28,6 +28,7 @@
 ```text
 요청 / Linear Issue
 → 관련 저장소 문서와 코드 확인·범위 결정
+→ 수락한 요청을 기존 Linear Issue에 연결하거나 새 Issue 생성
 → 프로젝트가 지정한 실행 AI가 승인된 범위를 구현·검증
 → 결과 검수
 → GitHub PR / CI
