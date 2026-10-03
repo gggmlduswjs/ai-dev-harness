@@ -44,9 +44,9 @@ Linear 작업(Issue)
     ↓
 복잡하거나 위험하면 Plan
     ↓
-승인된 범위를 Codex가 구현
+프로젝트가 지정한 실행 AI가 승인된 범위를 구현
     ↓
-Codex의 관련 검증 → 계약·diff·실행 근거 검수
+실행 AI의 관련 검증 → 계약·diff·실행 근거 검수
     ↓
 GitHub PR / CI
     ↓
@@ -57,7 +57,7 @@ Linear 완료(Done)
 
 **매 작업마다 Research·Plan을 만들지 않습니다.** 필요한 경우에만 사용합니다.
 
-기본은 **Claude 기획 → Codex 구현·검증**입니다. Claude Code에서 `/codex:rescue`로 작업을 넘기며, **Codex 단독으로 기획부터 검증까지 수행할 수도 있습니다.** Claude 한도가 소진되면 같은 작업의 기존 결정·계획·브랜치를 이어받습니다. 실행 방식·인계 계약·명령 예시는 [일상 가이드의 작업 절차](docs/guides/2-daily-loop-and-second-brain.md#작업-절차)가 정본입니다.
+프로젝트가 정한 AI 역할을 우선하며, 별도 지정이 없을 때 기본은 **Claude 기획 → Codex 구현·검증**입니다. Claude Code에서 `/codex:rescue`로 작업을 넘기며, **Codex 단독으로 기획부터 검증까지 수행할 수도 있습니다.** Claude 한도가 소진되면 같은 작업의 기존 결정·계획·브랜치를 이어받습니다. 실행 방식·인계 계약·명령 예시는 [일상 가이드의 작업 절차](docs/guides/2-daily-loop-and-second-brain.md#작업-절차)가 정본입니다.
 
 ## 도구별 책임
 

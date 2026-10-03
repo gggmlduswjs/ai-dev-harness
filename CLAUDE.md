@@ -28,7 +28,8 @@
 ```text
 요청 / Linear Issue
 → 관련 저장소 문서와 코드 확인·범위 결정
-→ 승인된 범위를 Codex가 구현·검증
+→ 수락한 요청을 기존 Linear Issue에 연결하거나 새 Issue 생성
+→ 프로젝트가 지정한 실행 AI가 승인된 범위를 구현·검증
 → 결과 검수
 → GitHub PR / CI
 → 승인된 병합
@@ -44,7 +45,7 @@
 
 일반 작업에는 별도 설계서·계획서와 독립 AI 리뷰를 강제하지 않습니다. 현재 요청/Issue의 관련 문서·코드부터 읽고, 중요한 정보가 부족하거나 중복 작업 가능성이 있을 때만 탐색을 넓힙니다. AI 변경·새 세션 인계와 지연 확인은 `docs/guides/2-daily-loop-and-second-brain.md` 5장을 따릅니다.
 
-기본은 **Claude가 기획·조사·계획, Codex가 구현·검증**하는 분업입니다. Claude Code에서는 `codex-plugin-cc`의 `/codex:rescue`로 승인된 작업을 넘깁니다. **Codex 단독으로 기획부터 검증까지 수행하는 것도 허용**하며, Claude의 한도 소진 시 기존 결정·계획을 이어받습니다. 도구가 달라도 승인·운영 안전·완료 조건은 같습니다. 실행 방식과 인수인계 계약의 정본은 [일상 가이드의 작업 절차](docs/guides/2-daily-loop-and-second-brain.md#작업-절차)입니다.
+실제 프로젝트의 `AGENTS.md`·`CLAUDE.md`가 정한 AI 역할을 우선합니다. 별도 지정이 없을 때 기본은 **Claude가 기획·조사·계획, Codex가 구현·검증**하는 분업입니다. Claude Code에서는 `codex-plugin-cc`의 `/codex:rescue`로 승인된 작업을 넘깁니다. **Codex 단독으로 기획부터 검증까지 수행하는 것도 허용**하며, Claude의 한도 소진 시 기존 결정·계획을 이어받습니다. Claude executor·Codex 직접 실행·companion 위임도 승인·운영 안전·완료 조건은 같습니다. Worktree 생성·재사용·회수는 프로젝트 기준을 따릅니다. 실행 방식과 인수인계 계약의 정본은 [일상 가이드의 작업 절차](docs/guides/2-daily-loop-and-second-brain.md#작업-절차)입니다.
 
 ## 화면(UI) 작업 (Vue + Element Plus 프로젝트일 때)
 
@@ -53,6 +54,8 @@
 1. **부품 선택** — Element Plus 공식 컴포넌트에서 고릅니다(`element-plus` 스킬).
 2. **디자인 판단** — 간격·위계·색·그림자는 `refactoring-ui` 스킬로 정해진 단계에서 고릅니다.
 3. **토큰** — 값은 토큰 파일 한 곳에서만 바꿉니다. 컴포넌트마다 스타일을 덮지 않습니다.
+
+화면 변경의 브라우저 검수는 [리뷰 가이드의 브라우저 검수](docs/guides/4-review-and-done.md#8-브라우저-검수)를 따릅니다. 기본 도구는 Playwright MCP이며, 현재 세션의 도구 제공 여부와 프로젝트 운영 안전 규칙을 먼저 확인합니다.
 
 ## 작업이 끝났을 때
 
