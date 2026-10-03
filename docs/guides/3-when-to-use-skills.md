@@ -73,7 +73,7 @@ owner-of: 설치된 스킬·플러그인을 언제, 어떤 상황에서, 어떤 
 | 상황 | 스킬 |
 |---|---|
 | 화면 디자인 | `ui-ux-pro-max`, `refactoring-ui` |
-| 실제 브라우저로 확인·자동화 | `dev-browser`, `browser-testing-with-devtools` |
+| 실제 브라우저로 확인·자동화 | Playwright MCP 기본. 연결은 [새 PC 가이드](00-new-pc-setup.md#브라우저-검수-도구-연결), 절차는 [브라우저 검수](4-review-and-done.md#8-브라우저-검수). 다른 도구는 현재 환경에서 지원되는 경우 사용 |
 | docx·pdf·pptx·xlsx 만들기·읽기 | `document-skills` |
 | Claude API로 앱 개발 | `claude-api` |
 | 기능 기획 문서 묶음(PRD·유저플로우 등) | `product-spec-kit` |
