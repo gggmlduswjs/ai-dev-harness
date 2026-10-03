@@ -11,15 +11,15 @@ owner-of: 하루 개발 루프, 지식을 어디에 두는가(세컨드 브레�
 
 ## 1. 한 줄 원칙
 
-**수집은 AI가, 판단은 사람이, 실행은 다시 AI가 합니다.**
-사람이 판단하는 지점은 이미 틀에 들어 있습니다: PRD·ROADMAP·ARCHITECTURE 승인, 설계서 승인, 계획서 승인, 머지 승인, Done 증거 확인.
+**기획·실행은 AI가, 범위·중요한 결정·운영 승인은 사람이 판단합니다.**
+기본은 Claude 기획 + Codex 구현이며, Codex 단독도 같은 계약을 따릅니다. PRD·ROADMAP·ARCHITECTURE와 필요한 설계서·계획서는 사람이 승인합니다. 이미 승인된 범위의 실행은 이어서 수행하고, 머지·운영 변경 승인은 구현 승인과 구분합니다.
 
 ## 2. 하루 루프
 
 | 시간 | 하는 일 | 쓰는 것 |
 |---|---|---|
 | 아침 | 오늘 할 일 파악 | Linear 뷰 **지금**·**다음**, 아래 브리핑 프롬프트 |
-| 낮 | 이슈 하나의 관련 문서·코드 확인 → 구현 → 관련 검증. 중요한 불확실성에는 조사, 복잡하거나 고위험인 작업에는 설계·계획 추가 | 작업 위험도에 맞는 superpowers 흐름([0-start-project.md](0-start-project.md) 8단계) |
+| 낮 | 이슈 하나의 범위 확인 → 승인된 작업 구현 → 관련 검증. 중요한 불확실성에는 조사, 복잡하거나 고위험인 작업에는 설계·계획 추가 | 아래 작업 절차와 필요한 Superpowers 스킬 |
 | 낮 | 결과를 검수하고 재지시 | 계획 검토 4체크(5장), 테스트, PR diff |
 | 저녁 | 한 일·못한 일·개선점 정리 | Linear 뷰 **증거 대기**, 세컨드 브레인 기록(4장) |
 
@@ -32,9 +32,59 @@ Linear에서 내게 할당된 이슈 중 In Progress와 Todo를 우선순위순�
 
 반복해서 길어지면 그때 gg-tools에 스킬로 올립니다(이 레포에는 두지 않음).
 
+### 작업 절차
+
+이 절이 **Claude·Codex 역할 분담과 Codex 단독 실행의 정본**입니다. Superpowers는 작업 방법을 제공하고, `codex-plugin-cc`는 Claude Code에서 Codex에 작업을 넘기는 연결 도구입니다. 이 하네스는 정본·인계·승인·완료 기준을 정합니다. 별도 실행기나 두 번째 작업 보드는 만들지 않습니다.
+
+| 실행 방식 | 기획·조사·범위 및 계획 정리 | 구현·관련 검증 | 결과 검수 |
+|---|---|---|---|
+| 기본 분업 | Claude + 필요한 Superpowers 스킬 | Codex (`/codex:rescue`로 위임) | Claude 또는 사람이 계약·diff·실행 근거 확인 |
+| Codex 단독 | Codex + 사용 가능한 Superpowers 스킬 | Codex를 직접 사용 | Codex가 계약·diff·fresh 검증 결과를 확인하고 사람이 중요한 판단·승인 |
+| Claude 한도 소진 후 전환 | 기존 기획·승인 범위를 Codex가 재확인하고 미결정 부분만 보완 | 같은 작업 브랜치·worktree에서 Codex가 계속 수행 | Codex 단독과 같은 기준 |
+
+#### 범위 확인과 승인
+
+1. 수행 AI가 `AGENTS.md`, 루트·대상 계층의 `CLAUDE.md`, 현재 요청/Issue의 관련 정본·코드·기존 Research/Plan을 확인합니다. 브랜치·worktree·사용자 WIP도 확인합니다.
+2. **작은 수정·범위가 명확한 작업**은 목표·완료 조건·제외 범위·검증 방법을 요청이나 Issue에서 확정하고 바로 구현합니다. 사용자가 해당 수정을 이미 요청·승인했다면 같은 범위를 다시 승인받지 않습니다. 별도 Research·Spec·Plan은 강제하지 않습니다.
+3. **중요한 불확실성**은 Research, **복잡하거나 고위험인 변경**은 필요한 설계·계획을 추가합니다. 분업에서는 Claude, 단독에서는 Codex가 작성합니다. Superpowers `brainstorming`·`writing-plans`를 사용하되 산출물 위치는 루트 `CLAUDE.md`를 따릅니다. 구현 전 사람이 필요한 설계·계획을 승인합니다.
+4. 새로운 제품 결정, 승인 범위를 넘는 변경, 운영 write·머지 등 별도 승인이 필요한 행동은 확인합니다. 계획에 포함된 코드 수정을 승인했다고 운영 변경까지 승인된 것으로 해석하지 않습니다.
+
+#### Codex가 바로 실행할 수 있는 인계
+
+계획이 있는 작업은 **기존 `.dev/plans/` 계획서에 `Codex 인수인계` 절**을 둡니다. 목표·완료 조건, 관련 정본, 승인 범위, 수정 허용 파일, 재사용 함수, 선행 의존성, 금지 범위, 작업 디렉터리·브랜치·worktree, 검증 명령을 적습니다. 승인 근거는 실제 사용자 지시나 관련 Issue에 연결하며 문서의 `status`만으로 승인됐다고 판단하지 않습니다. 새 인계 문서나 별도 실행 계획으로 다시 번역하지 않습니다.
+
+작은 작업은 요청/Issue의 짧은 지시로 충분합니다. AI 교체·한도 소진 시에는 5장의 인계문을 사용하고, 승인된 결정을 다시 설계하지 않습니다. 기존 계약과 실제 코드가 충돌하거나 필수 정보가 빠졌으면 그 부분만 확인합니다.
+
+**Claude Code 안에서 위임할 때**는 프로젝트의 작업 worktree에서 실행합니다. 새 작업은 `--fresh`, 같은 Codex 작업의 후속은 `--resume`으로 구분합니다. 아래 경로는 실제 승인된 계획서로 바꿉니다.
+
+```text
+/codex:rescue --fresh --background .dev/plans/YYYY-MM-DD-기능명.md의 Codex 인수인계에 따라 구현·검증해줘. AGENTS.md와 CLAUDE.md를 먼저 읽고 승인 범위를 지켜줘.
+/codex:status
+/codex:result
+/codex:rescue --resume --background 앞서 승인한 같은 작업의 미완료 구현·검증을 이어서 수행해줘.
+```
+
+`/codex:rescue`는 명시적 구현 요청이면 쓰기 가능한 작업을 위임하고, 조사·리뷰만 요청하면 읽기 전용으로 전달합니다. 전달용 subagent는 작업을 직접 풀지 않는 플러그인의 forwarder입니다. `/codex:result`의 출력은 플러그인 계약대로 보존하며, 별도 검수에서 diff와 실제 실행 근거를 확인합니다. 연결·인증이 안 되어 있으면 `/codex:setup`으로 확인합니다. 설치·명령 정본은 [codex-plugin-cc](https://github.com/openai/codex-plugin-cc)이며, 엔진·명령 본문을 이 레포에 복사하지 않습니다.
+
+**Codex를 직접 사용할 때**는 해당 저장소/worktree를 열고 아래처럼 요청합니다. Claude의 실행이나 `codex-plugin-cc` 호출이 필요하지 않습니다.
+
+```text
+AGENTS.md와 루트·대상 계층 CLAUDE.md를 읽고, .dev/plans/YYYY-MM-DD-기능명.md의 승인된 Codex 인수인계를 구현·검증해줘. 현재 브랜치와 사용자 WIP를 확인하고, 승인된 결정은 유지해줘.
+```
+
+계획이 없는 작은 작업은 계획서 경로 대신 목표·완료 조건·제외 범위를 적습니다. Codex 단독으로 새 기획부터 시작할 때는 구현 전 필요한 범위·설계·계획을 사용자와 확정합니다. 런타임에 스킬이 없으면 이름을 호출했다고 가정하지 않고 같은 조사·구현·검증 절차를 수행하며, 사용할 수 없는 도구와 검증은 보고합니다.
+
+#### 구현·검수·마무리
+
+- Codex가 승인된 계약을 직접 실행하고 프로젝트의 TDD·디버깅·검증 규칙을 따릅니다. 같은 작업의 브랜치·worktree·PR을 재사용하고 같은 파일을 두 AI가 동시에 수정하지 않습니다.
+- 결과에는 변경 파일·재사용 근거·검증 명령과 결과·생략한 검증과 이유·남은 리스크를 남깁니다. `AGENTS.md`의 완료 구분을 따릅니다.
+- 분업이면 Claude 또는 사람이, 단독이면 Codex와 사람이 계약·diff·fresh command output·CI를 확인합니다. 독립 AI 리뷰는 복잡하거나 고위험인 작업에 추가하고 같은 diff의 리뷰를 자동으로 중복하지 않습니다. Codex 단독 구현·자체 확인은 독립 리뷰로 부르지 않습니다.
+- Claude Code의 `/codex:review`는 읽기 전용 리뷰입니다. 리뷰에서 나온 수정은 적용할 항목·범위를 승인한 뒤 별도 구현 요청으로 넘깁니다. 선택적인 stop review gate는 필수 절차가 아니며, 이 문서가 사용자 설정을 자동 변경하지 않습니다.
+- PR 전에 필요한 정본을 같은 변경에 반영합니다([CONVENTIONS](../CONVENTIONS.md) 6장). 머지·배포·운영 적용은 해당 프로젝트의 명시 승인 규칙을 따르고, AC 증거와 필요한 병합·운영 근거를 확인한 뒤 Linear Done으로 옮깁니다. 판단 기준은 [4번 가이드](4-review-and-done.md)입니다.
+
 ## 3. 처음 한 번 설정 — 플러그인 연결
 
-**Team Plugin**(스킬·hook·명령을 한 묶음으로 배포하는 단위)이 우리에게는 [gg-tools](https://github.com/gggmlduswjs/gg-tools)의 `gg-skills` 플러그인입니다. 이 레포 `.claude/settings.json`은 **어떤 플러그인을 쓰는지 선언**만 합니다(superpowers, gg-skills). 스킬 파일은 레포에 없습니다. 새 PC에서는 한 번만 실행합니다.
+**Team Plugin**(스킬·hook·명령을 한 묶음으로 배포하는 단위)이 우리에게는 [gg-tools](https://github.com/gggmlduswjs/gg-tools)의 `gg-skills` 플러그인입니다. 이 레포 `.claude/settings.json`은 **어떤 플러그인을 쓰는지 선언**만 합니다(superpowers, gg-skills). 스킬 파일은 레포에 없습니다. `codex-plugin-cc`를 포함한 설치 목록은 gg-tools가 관리하며, 실제 전역·프로젝트 활성 설정을 확인합니다. Codex 단독에서는 Claude 전용 hook·명령이 실행된다고 가정하지 않습니다. 새 PC에서는 한 번만 실행합니다.
 
 ```powershell
 gh repo clone gggmlduswjs/gg-tools ~/claude
@@ -49,7 +99,7 @@ pwsh ~/claude/bootstrap.ps1
 | 하네스 빈칸 점검 | `harness-audit` |
 | 토큰·비용 점검 | `improve-token-efficiency` |
 | 보안 점검 | `owasp-security-scan` |
-| 세컨드 브레인 (선택) | `wiki-ingest` · `wiki-query` · `wiki-lint` (외부 `agentic-eng-toolkit`) |
+| 세컨드 브레인 (선택) | gg-tools의 `wiki-ingest` · `wiki-query` · `wiki-lint` (Codex 사용은 4장) |
 
 ## 4. 지식이 사는 곳 — 세컨드 브레인
 
@@ -78,7 +128,7 @@ pwsh ~/claude/bootstrap.ps1
 
 ### 구조 (3층)
 
-`agentic-eng-toolkit` 플러그인의 `wiki-*` 스킬이 기대하는 구조이고(빈 틀은 [wiki-template](https://github.com/gggmlduswjs/wiki-template) 저장소의 **Use this template**로 만듭니다), 프로젝트 안에 둔 위키도 같은 구조를 쓰면 같은 스킬이 동작합니다.
+gg-tools가 배포하는 `wiki-*` 스킬이 사용하는 구조이고(빈 틀은 [wiki-template](https://github.com/gggmlduswjs/wiki-template) 저장소의 **Use this template**로 만듭니다), 프로젝트 안에 둔 위키도 같은 구조를 쓰면 같은 스킬이 동작합니다.
 
 ```text
 second-brain/
@@ -97,6 +147,23 @@ second-brain/
 - 마크다운과 `[[링크]]`를 쓰므로 Obsidian으로 열어 볼 수 있습니다.
 
 > 첫 Ingest는 `SKILL.md` 절차대로 수동으로 시험해 통과했습니다(페이지 3개, 깨진 링크 0). 스킬 자동 호출은 새 세션에서 따로 확인합니다. 스킬은 폴더를 만들지 않으므로 위키 폴더(`WIKI_SCHEMA.md`가 있는 곳)에서 Claude Code를 열어 시작합니다.
+
+### Codex에서 위키 스킬 사용
+
+`wiki-ingest`·`wiki-query`·`wiki-lint`는 `WIKI_SCHEMA.md`와 Markdown 파일을 읽고 쓰는 절차이므로 Codex에서도 사용할 수 있습니다. **Claude 플러그인 설치와 Codex 스킬 등록은 별개**입니다. 현재 Codex 세션의 스킬 목록에서 등록 여부를 확인하고, 미등록 상태에서는 실제 설치된 원본 `SKILL.md`를 명시해 읽고 수행하게 할 수 있습니다. 반복 사용을 위한 Codex 등록·설치 연결은 공용 도구 저장소에서 관리하며 이 하네스에 스킬 본문을 복제하지 않습니다.
+
+gg-tools의 원본은 `~/claude/gg-skills/skills/second-brain/wiki-{ingest,query,lint}/SKILL.md`입니다. 예시는 설치 경로에 맞춰 바꾸고 **위키 저장소에서** 실행합니다.
+
+```text
+~/claude/gg-skills/skills/second-brain/wiki-query/SKILL.md를 읽고, 현재 위키의 WIKI_SCHEMA.md 규칙에 따라 [질문]에 답해줘. 근거 페이지를 인용해줘.
+```
+
+- `ingest`: 지정한 원본을 통합하고 index·log를 갱신합니다. `raw/`는 읽기만 합니다.
+- `query`: 근거 페이지를 인용해 답합니다. 조회만 할 때는 파일을 바꾸지 않고, 답변 저장은 승인받습니다.
+- `lint`: 점검 결과를 보고하고, 수정·이동 등은 스키마의 승인 규칙을 따릅니다.
+- 위키의 로컬 `AGENTS.md`·`CLAUDE.md`와 `WIKI_SCHEMA.md`를 먼저 읽고 승인·민감정보·커밋 규칙을 지킵니다. Claude의 세션 시작 hook이나 플러그인 명령은 Codex에서 자동 실행되지 않습니다. 필요한 대기 원본 확인 등은 요청에 맞춰 직접 수행합니다.
+
+절차를 읽을 수 있다는 사실과 실제 ingest·자동 호출 검증은 구분합니다. Codex에 등록한 뒤에는 새 세션에서 호출·작은 샘플·결과 확인으로 검증합니다.
 
 ### 개인 브레인 vs 프로젝트 브레인 (시험적)
 
@@ -158,6 +225,9 @@ AI를 바꾸거나 작업 경계에서 새 세션을 시작할 때, 같은 탐�
 현재 Issue와 관련 정본 링크:
 확정 결정과 승인 범위:
 브랜치 / 변경 파일 / 사용자 WIP:
+작업 디렉터리 / worktree:
+수정 허용 파일 / 재사용 함수 / 선행 의존성 (구현 인계 시):
+금지 범위 / 중단·확인 조건:
 검증 명령·결과·확인 시점:
 미해결 질문 / 이어서 확인할 사항:
 ```
@@ -184,4 +254,3 @@ AI를 바꾸거나 작업 경계에서 새 세션을 시작할 때, 같은 탐�
 | 출근길 메신저 자동 브리핑(cron) | 설정이 크고 1인 개발에 과함. 필요해지면 gg-tools에 추가 |
 | Context Intelligence (조직 전체 인덱싱) | 팀 규모가 될 때 |
 | Oncall agent | ROADMAP의 운영 단계(On-call)에서 |
-

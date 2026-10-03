@@ -12,6 +12,7 @@ Bookmart, BookEcommerce 및 앞으로 만드는 프로젝트에 **동일한 문�
 |---|---|---|
 | 프로젝트 초기 구조·공식 문서 양식·공통 운영 원칙 | **이 저장소 `ai-dev-harness`** | 실행 중인 제품의 현재 문서 |
 | 개발 프로세스(Brainstorming·계획·TDD·디버깅·검증) | 외부 [Superpowers](https://github.com/obra/superpowers) 플러그인 | 외부 스킬 본문·별도 phase 실행기 |
+| Claude Code에서 Codex 작업 위임·리뷰 | [codex-plugin-cc](https://github.com/openai/codex-plugin-cc) | 플러그인 런타임·명령 본문 |
 | 공통 전문 스킬·공통 hook 엔진(`guardrail`·`tdd_guard`·`secret_guard` 등)·온보딩 점검 스킬 `onboard`(`--structure`·`--catalog`·`--adopt`·`--impact`)·PC 설치 | [gg-tools](https://github.com/gggmlduswjs/gg-tools) | 플러그인 코드·hook 엔진·점검 스크립트·설치 스크립트 (이 레포의 `.claude/hooks/`는 shim만, [원칙](.claude/README.md)) |
 | 제품별 정책·전용 스킬·Hook 연결 | Bookmart / Coupang_v2 각 레포 | 프로젝트 전용 비즈니스 규칙 |
 | 현재 Project·Issue·Status·일정·우선순위 | Linear | 두 번째 실행 보드 |
@@ -37,15 +38,15 @@ Superpowers는 직접 설치하지 않고 `gg-tools`의 bootstrap(`pwsh ~/claude
 ```text
 Linear 작업(Issue)
     ↓
-저장소에서 관련 문서·코드 확인
+관련 문서·코드 확인 및 범위 결정 (Claude 또는 Codex)
     ↓
 모르는 것이 중요하면 Research
     ↓
 복잡하거나 위험하면 Plan
     ↓
-Claude / Codex 구현
+승인된 범위를 Codex가 구현
     ↓
-테스트 및 검증
+Codex의 관련 검증 → 계약·diff·실행 근거 검수
     ↓
 GitHub PR / CI
     ↓
@@ -55,6 +56,8 @@ Linear 완료(Done)
 ```
 
 **매 작업마다 Research·Plan을 만들지 않습니다.** 필요한 경우에만 사용합니다.
+
+기본은 **Claude 기획 → Codex 구현·검증**입니다. Claude Code에서 `/codex:rescue`로 작업을 넘기며, **Codex 단독으로 기획부터 검증까지 수행할 수도 있습니다.** Claude 한도가 소진되면 같은 작업의 기존 결정·계획·브랜치를 이어받습니다. 실행 방식·인계 계약·명령 예시는 [일상 가이드의 작업 절차](docs/guides/2-daily-loop-and-second-brain.md#작업-절차)가 정본입니다.
 
 ## 도구별 책임
 

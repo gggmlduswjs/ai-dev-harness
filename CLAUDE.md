@@ -27,9 +27,9 @@
 
 ```text
 요청 / Linear Issue
-→ 관련 저장소 문서와 코드 확인
-→ 구현
-→ 검증
+→ 관련 저장소 문서와 코드 확인·범위 결정
+→ 승인된 범위를 Codex가 구현·검증
+→ 결과 검수
 → GitHub PR / CI
 → 승인된 병합
 → Linear Done
@@ -44,6 +44,8 @@
 
 일반 작업에는 별도 설계서·계획서와 독립 AI 리뷰를 강제하지 않습니다. 현재 요청/Issue의 관련 문서·코드부터 읽고, 중요한 정보가 부족하거나 중복 작업 가능성이 있을 때만 탐색을 넓힙니다. AI 변경·새 세션 인계와 지연 확인은 `docs/guides/2-daily-loop-and-second-brain.md` 5장을 따릅니다.
 
+기본은 **Claude가 기획·조사·계획, Codex가 구현·검증**하는 분업입니다. Claude Code에서는 `codex-plugin-cc`의 `/codex:rescue`로 승인된 작업을 넘깁니다. **Codex 단독으로 기획부터 검증까지 수행하는 것도 허용**하며, Claude의 한도 소진 시 기존 결정·계획을 이어받습니다. 도구가 달라도 승인·운영 안전·완료 조건은 같습니다. 실행 방식과 인수인계 계약의 정본은 [일상 가이드의 작업 절차](docs/guides/2-daily-loop-and-second-brain.md#작업-절차)입니다.
+
 ## 화면(UI) 작업 (Vue + Element Plus 프로젝트일 때)
 
 화면을 만들거나 고칠 때는 이 순서로 합니다. 규칙의 정본은 `docs/UI_GUIDE.md`입니다. 다른 스택이면 부품 선택 단계를 그 스택의 규칙으로 바꿉니다.
@@ -54,7 +56,7 @@
 
 ## 작업이 끝났을 때
 
-머지 전에 앞으로도 유효한 내용을 정본(`docs/`)으로 올리고, 끝난 설계서·계획서는 `status: Historical`로 바꿔 `docs/_archive/`로 보냅니다. 올릴 것이 없는 작업은 건너뜁니다. 절차: `docs/CONVENTIONS.md` 6장.
+머지 전에 앞으로도 유효한 내용을 정본(`docs/`)으로 올립니다. 기능의 현재 계약인 설계서는 유지하고, 승격 후 남은 설계서·계획서는 `status: Historical`로 바꿔 `docs/_archive/`로 보냅니다. 올릴 것이 없는 작업은 건너뜁니다. 절차: `docs/CONVENTIONS.md` 6장.
 
 ## superpowers 저장 위치
 
