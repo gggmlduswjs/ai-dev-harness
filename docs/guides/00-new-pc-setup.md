@@ -33,6 +33,8 @@ winget install --id Git.Git -e
 winget install --id GitHub.cli -e
 winget install --id Microsoft.PowerShell -e
 winget install --id Python.Python.3.12 -e
+winget install --id OpenJS.NodeJS.LTS -e
+winget install --id Google.Chrome -e
 winget install --id Anthropic.ClaudeCode -e
 ```
 
@@ -42,15 +44,24 @@ winget install --id Anthropic.ClaudeCode -e
 | GitHub CLI(`gh`) | GitHub 로그인과 저장소 받기 |
 | PowerShell 7(`pwsh`) | gg-tools 설치 스크립트를 실행 |
 | Python | 자동 검사(hook)가 파이썬으로 동작 |
+| Node.js LTS(`node`·`npm`·`npx`) | Playwright MCP 실행과 Vue 빌드 |
+| Google Chrome | Playwright MCP의 `--browser chrome` 검수 브라우저 |
 | Claude Code | 채팅으로 개발하는 도구 |
 
 **모두 끝나면 PowerShell 창을 닫고 새로 엽니다.** 새 프로그램이 인식되려면 필요합니다. 확인:
 
 ```powershell
-git --version; gh --version; pwsh --version; python --version; claude --version
+git --version
+gh --version
+pwsh --version
+python --version
+node --version
+npm.cmd --version
+npx.cmd --version
+claude --version
 ```
 
-다섯 줄 모두 버전이 나오면 됩니다. 하나라도 "찾을 수 없다"가 나오면 그 프로그램만 다시 설치하고 창을 새로 엽니다.
+여덟 명령 모두 버전이 나오면 됩니다. Chrome도 시작 메뉴에서 열고 주소창에 `chrome://version`을 입력해 버전을 확인합니다. 하나라도 "찾을 수 없다"가 나오거나 Chrome이 없으면 그 프로그램만 다시 설치하고 창을 새로 엽니다. Winget을 사용할 수 없을 때는 [Node.js 공식 다운로드](https://nodejs.org/en/download)와 [Chrome 공식 다운로드](https://www.google.com/chrome/)에서 설치합니다.
 
 처음 한 번 Git에 이름을 알려 줍니다(커밋 기록에 쓰임).
 
@@ -150,4 +161,24 @@ Claude가 질문을 하나씩 하고, 답하면 `docs/PRD.md` 같은 기획 문�
 
 - 이 문서의 명령은 **Windows 전용**입니다(PowerShell).
 - 이 틀의 프로젝트는 처음에 **GitHub에 올리지 않은** 로컬 저장소입니다. 올릴 때는 `gh repo create 이름 --private --source . --push`를 씁니다.
-- Vue 화면을 만드는 프로젝트라면 이후 Node.js가 필요합니다(`winget install --id OpenJS.NodeJS.LTS -e`). 처음 시작에는 필요 없습니다.
+- Node.js와 Chrome은 1단계에서 설치합니다. 아래 Playwright MCP 연결 전에 `node`·`npm.cmd`·`npx.cmd`와 Chrome 버전 확인까지 마칩니다.
+
+## 브라우저 검수 도구 연결
+
+화면 작업에는 [Microsoft Playwright MCP](https://github.com/microsoft/playwright-mcp)를 기본으로 사용합니다. Node.js 18 이상과 Chrome이 필요합니다. 스킬 이름이 아니라 MCP 도구이며, 이 문서를 받는 것만으로 설치되지는 않습니다.
+
+Windows PowerShell에서 사용하는 AI의 명령만 실행합니다. 아래 `0.0.83`은 2026-10-04 연결 확인 버전입니다. 업데이트는 새 버전의 `--help`, 연결과 도구 목록을 확인한 뒤 명시적으로 바꿉니다.
+
+```powershell
+claude mcp add --scope user --transport stdio playwright -- cmd.exe /d /c npx.cmd -y @playwright/mcp@0.0.83 --browser chrome --isolated --caps devtools --output-dir "$env:LOCALAPPDATA/Temp/playwright-mcp/claude"
+codex mcp add playwright -- cmd.exe /d /c npx.cmd -y @playwright/mcp@0.0.83 --browser chrome --isolated --caps devtools --output-dir "$env:LOCALAPPDATA/Temp/playwright-mcp/codex"
+```
+
+기존 `playwright` 설정이 있으면 먼저 확인하고 필요한 옵션만 수정합니다. 다른 MCP·권한·hook 설정은 보존합니다. 사용자 설정이므로 개인 절대 경로나 자격 증명을 프로젝트에 커밋하지 않습니다. `--isolated`는 두 AI의 프로필 충돌을 피하며 세션 종료 시 로그인 상태를 버립니다. 개인 Chrome 로그인 프로필에 자동 연결하지 않습니다.
+
+```powershell
+claude mcp get playwright
+codex mcp get playwright --json
+```
+
+Claude는 `Connected`인지 확인하고, Codex는 새 세션에서 `playwright` 도구 목록을 확인합니다. 설정 등록·MCP 연결·실제 브라우저 실행은 서로 다른 확인입니다. 열려 있던 AI 세션에는 새 서버가 즉시 나타나지 않을 수 있어 새 세션에서 확인합니다. 실제 검수 절차는 [리뷰 가이드](4-review-and-done.md#8-브라우저-검수)를 따릅니다.
