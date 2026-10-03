@@ -70,11 +70,11 @@ PRD에 담기 어려운 업무 규칙이 있을 때 [`templates/DOMAIN.md`](../.
 이제부터는 일상 개발 루프입니다.
 
 ```text
-Linear 이슈 → (모르면 조사) → brainstorming 설계서 → writing-plans 계획서 → 구현(테스트 먼저) → 검증 → PR → 승인된 머지 → 정본으로 승격 → Linear Done
+요청 / Linear 이슈 → 관련 문서·코드 → (중요한 불확실성은 조사, 복잡하거나 고위험이면 설계·계획) → 구현 → 관련 검증 → PR → 승인된 머지 → 필요한 정본 반영 → Linear Done
 ```
 
 - 설계서는 `docs/features/`, 계획서는 `.dev/plans/`에 저장됩니다(`CLAUDE.md`의 「superpowers 저장 위치」).
-- 작은 버그·수정은 설계서·계획서 없이 구현 → 검증 → PR로 갑니다.
+- 작은 버그·수정과 범위가 명확한 일반 기능은 별도 설계서·계획서 없이 구현 → 관련 검증 → PR로 갑니다. 테스트는 변경 행동과 위험에 맞춰 선택합니다.
 - 작업이 끝나면 [CONVENTIONS](../CONVENTIONS.md) 6장대로 정본에 반영합니다.
 
 ## 시작 체크리스트

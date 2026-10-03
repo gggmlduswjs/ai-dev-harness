@@ -21,12 +21,12 @@
 - TDD guard hook(기본 꺼짐, 켜는 법·한계): `docs/guides/6-tdd-guard.md`
 - 기존 프로젝트에 적용하는 순서: `docs/ADOPTION.md`
 - 참고한 외부 레포: `docs/REFERENCES.md`
-- 배경 지식·결정 이유(시험적, 필요 없으면 삭제): @_brain/wiki/index.md 먼저. 정본(Spec·ADR·Linear)은 복사하지 않고 링크
+- 배경 지식·결정 이유(시험적): `_brain/wiki/index.md`는 관련 배경이 필요할 때만 확인. 정본(Spec·ADR·Linear)은 복사하지 않고 링크
 
 ## 기본 개발 흐름
 
 ```text
-Linear Issue
+요청 / Linear Issue
 → 관련 저장소 문서와 코드 확인
 → 구현
 → 검증
@@ -41,6 +41,8 @@ Linear Issue
 - 구현이 복잡하거나 고위험임 → Plan.
 - 앞으로도 유효해야 할 제품 규칙 → docs.
 - AI가 같은 실수를 반복함 → 필요에 따라 Rule / Skill / Hook / Agent / Eval.
+
+일반 작업에는 별도 설계서·계획서와 독립 AI 리뷰를 강제하지 않습니다. 현재 요청/Issue의 관련 문서·코드부터 읽고, 중요한 정보가 부족하거나 중복 작업 가능성이 있을 때만 탐색을 넓힙니다. AI 변경·새 세션 인계와 지연 확인은 `docs/guides/2-daily-loop-and-second-brain.md` 5장을 따릅니다.
 
 ## 화면(UI) 작업 (Vue + Element Plus 프로젝트일 때)
 
@@ -76,6 +78,11 @@ superpowers 스킬의 기본 저장 위치(`docs/superpowers/…`)는 쓰지 않
 6. 모든 작업에 Research·Feature Spec·Plan을 강제하지 않습니다.
 7. AI의 완료 선언만으로 검증 완료라 판단하지 않습니다.
 8. 실제 반복 문제나 위험을 해결하지 못하는 하네스 구성요소는 만들지 않습니다.
+
+## 공통 작업 계약
+
+새 문서·구현 전에 관련 기존 정본과 경로를 찾고, 새 사본보다 기존 정본 수정·연결을 우선합니다. Research의 발견, 사람이 확정한 결정, 구현 계획, 실제 운영 상태를 구분합니다. 문서·코드·운영 근거가 충돌하면 추측으로 정본을 선택하지 않고 충돌을 보고합니다.
+명시적 요구가 없으면 새 관리체계·상태체계·ID·Registry를 만들지 않습니다. 변경 위험에 맞는 실제 검증 근거를 남깁니다. 이 계약은 Claude·Codex 모두에 적용되며 각 도구의 차이만 `AGENTS.md`와 실행 설정에서 설명합니다.
 
 ## 운영 안전
 
