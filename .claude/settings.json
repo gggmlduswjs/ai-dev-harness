@@ -8,6 +8,11 @@
     "superpowers@claude-plugins-official": true,
     "gg-skills@gg-tools": true
   },
+  "permissions": {
+    "allow": [
+      "Bash(python scripts/baden.py report:*)"
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {
@@ -16,6 +21,15 @@
           {
             "type": "command",
             "command": "python \"${CLAUDE_PROJECT_DIR}/.claude/hooks/claude-md-check.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"${CLAUDE_PROJECT_DIR}/scripts/baden.py\" session"
           }
         ]
       }
