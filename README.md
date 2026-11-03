@@ -28,7 +28,7 @@ PROJECT/
 │   └── DESIGN_SYSTEM.md   토큰 · 패턴 · 공통 상태 · 금지 목록
 ├── rules/                 구현 규칙(INDEX.yaml · principles.md · concerns/)
 ├── templates/             ISSUE.md(작업 하나) · PATTERN.md(화면 패턴 하나)
-├── .claude/               훅(위험 명령 · CLAUDE.md 점검 · TDD guard)
+├── .claude/               훅(위험 명령 · CLAUDE.md 점검 · Baden 슬롯 알림 · TDD guard) — 관제: Baden · gitwatch
 ├── .github/               PR 양식 · CLAUDE.md 줄 수 검사
 ├── scripts/  tests/
 ```
