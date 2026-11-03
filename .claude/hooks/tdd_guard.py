@@ -3,7 +3,7 @@
 
 판정 로직은 gg-tools 의 공용 엔진 **한 벌**이다. 여기에 복사하지 않는다.
 stdin·인자·stdout·종료코드를 엔진에 그대로 넘긴다(예: --mode deny, --selftest).
-켜는 법: docs/guides/6-tdd-guard.md
+켜는 법: .claude/README.md 「TDD guard 켜기」
 
 self-test:  python .claude/hooks/tdd_guard.py --selftest
 """

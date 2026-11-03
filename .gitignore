@@ -1,7 +1,3 @@
-# 산출물 — 루트에 흩어지지 않게 .artifacts/ 한 곳으로
-.artifacts/*
-!.artifacts/README.md
-
 # superpowers 작업 장부(작업 중 임시)
 .superpowers/
 
@@ -15,7 +11,3 @@ node_modules/
 *.egg-info/
 .venv/
 .DS_Store
-
-# 프로젝트 위키 원문(민감 정보가 git 이력에 남지 않게). wiki 페이지만 커밋
-_brain/raw/*
-!_brain/raw/.gitkeep

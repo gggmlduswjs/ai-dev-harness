@@ -1,41 +1,24 @@
-# .claude/ — AI 규칙·스킬·에이전트·훅
+# .claude/ — Claude Code 설정
 
-**반복된 실수나 위험이 실제로 있을 때만** 채웁니다. 폴더를 채우려고 만들지 않습니다.
+| 파일 | 하는 일 | 켜짐 |
+|---|---|---|
+| `settings.json` | 플러그인 · 훅 연결 | — |
+| `hooks/guardrail.py` | 위험 명령(force push · `git add -A` · 파국적 rm · 인라인 시크릿) 막기 | 예 |
+| `hooks/claude-md-check.py` | 세션 시작 때 `CLAUDE.md` 줄 수 · 오래됨 알림(판정은 `scripts/check-claude-md.py`) | 예 |
+| `hooks/tdd_guard.py` | 소스 수정 전 대응 테스트 파일 확인 | 아니요 — 아래 |
 
-```text
-.claude/
-├── agents/    역할이 정해진 서브에이전트 (예: executor, investigator)
-├── rules/     항상 지킬 규칙
-├── skills/    반복 작업 절차
-└── hooks/     자동 검사
-```
-
-## 공용 스킬·hook — gg-tools 플러그인에서 가져옴
-
-공용 스킬과 hook 엔진은 **이 레포에 복사하지 않습니다.** [gg-tools](https://github.com/gggmlduswjs/gg-tools) 플러그인 한 곳에서 관리합니다(공개). 이 레포는 `hooks/guardrail.py`(얇은 shim)만 갖고, 판정 로직은 `~/claude/gg-skills/hooks/`의 엔진을 부릅니다.
-
-새 PC에서 처음 한 번:
+훅의 판정 엔진은 [gg-tools](https://github.com/gggmlduswjs/gg-tools) 한 곳에 있고, 여기 파일은 얇은 shim 이다. 엔진이 없으면 조용히 통과하지 않고 확인을 요청한다.
 
 ```powershell
 gh repo clone gggmlduswjs/gg-tools ~/claude
 pwsh ~/claude/bootstrap.ps1
+python .claude/hooks/guardrail.py --selftest
 ```
 
-엔진이 없으면 위험 명령 검사가 꺼진 채로 조용히 통과하지 않고 **확인을 요청**합니다. 확인용 시험: `python .claude/hooks/guardrail.py --selftest`.
-사용법은 [docs/guides/2-daily-loop-and-second-brain.md](../docs/guides/2-daily-loop-and-second-brain.md)를 봅니다.
+## TDD guard 켜기
 
-## 외부 스킬 설치 — refactoring-ui (화면이 있는 프로젝트)
+돈 · 권한 · 상태 코드가 많은 프로젝트에서만 켠다. `settings.json` 의 `hooks.PreToolUse` 에 `Edit|Write` matcher 로 `python "${CLAUDE_PROJECT_DIR}/.claude/hooks/tdd_guard.py"` 를 더한다. 확인: `python .claude/hooks/tdd_guard.py --selftest`.
 
-[s0xDk/refactoring-ui-skill](https://github.com/s0xDk/refactoring-ui-skill) (MIT)은 책 *Refactoring UI*의 규칙을 담은 스킬입니다. **파일을 복사해 넣지 않고** git으로 설치해야 업데이트를 추적할 수 있습니다. **폴더 이름은 반드시 `refactoring-ui`**여야 합니다(스킬 이름과 맞춤).
+## 더할 때
 
-```sh
-# 이 프로젝트에만 (팀과 공유) — 권장
-git submodule add https://github.com/s0xDk/refactoring-ui-skill.git .claude/skills/refactoring-ui
-
-# 모든 프로젝트에서 (개인)
-git clone https://github.com/s0xDk/refactoring-ui-skill.git ~/.claude/skills/refactoring-ui
-```
-
-설치 후 **새 세션**을 시작해야 스킬이 로드됩니다. UI를 만들거나 고칠 때 자동으로 쓰이고, `/refactoring-ui …`로 직접 부를 수도 있습니다.
-스킬에 들어 있는 `assets/tokens.css`는 시작용 토큰이므로, 프로젝트의 토큰 파일에 **값을 옮겨 쓰고** Element Plus 변수와 맞춥니다.
-
+에이전트 · 스킬 · 훅은 **같은 실수가 반복될 때만** 더한다. 구현 규칙은 여기가 아니라 루트 `rules/` 에 둔다.
