@@ -27,7 +27,8 @@ PROJECT/
 │   ├── SCREENS.md         화면 목록 한 장
 │   └── DESIGN_SYSTEM.md   토큰 · 패턴 · 공통 상태 · 금지 목록
 ├── rules/                 구현 규칙(INDEX.yaml · principles.md · concerns/)
-├── templates/             ISSUE.md(작업 하나) · PATTERN.md(화면 패턴 하나)
+├── templates/             ISSUE.md(작업 하나) · PATTERN.md(화면 패턴 하나) · INTAKE.md(남의 것 → 우리 규칙)
+├── intake/                들여오기 판정 CSV(근거로 남김)
 ├── .claude/               훅(위험 명령 · CLAUDE.md 점검 · Baden 슬롯 알림 · TDD guard) — 관제: Baden · gitwatch
 ├── .github/               PR 양식 · CLAUDE.md 줄 수 검사
 ├── scripts/  tests/
@@ -37,7 +38,7 @@ PROJECT/
 
 1. 이 레포를 템플릿으로 새 레포를 만듭니다(`Use this template`).
 2. `docs/PRD.md` → `docs/DOMAIN.md` → `docs/SCREENS.md` → `docs/DESIGN_SYSTEM.md` → `docs/ROADMAP.md` 순서로 채웁니다. 모르는 칸은 비워 두지 말고 `?` 를 적습니다.
-3. 정한 것은 `docs/DECISIONS.md` 에 번호를 붙여 적습니다.
+3. 경쟁사 · 옛 시스템 분석이 있으면 `templates/INTAKE.md` 순서로 판정 CSV 를 만들고, 사람이 판정한 줄만 `docs/` 로 옮깁니다. 정한 것은 `docs/DECISIONS.md` 에 번호를 붙여 적습니다.
 4. `CLAUDE.md` 의 「안전」 · 「명령」 빈칸을 프로젝트 기준으로 채웁니다.
 5. 로드맵 1단계를 GitHub Issue 여러 개로 쪼갭니다(`templates/ISSUE.md`). 이슈 하나 = 화면 하나 또는 흐름 하나.
 6. 구현 → PR → 기계 검사 → 리뷰 → 머지. 같은 실수가 두 번 나오면 `rules/` 에 규칙을 더합니다.
