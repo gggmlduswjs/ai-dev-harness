@@ -55,6 +55,18 @@
 - 삭제 · 초기화 등 되돌릴 수 없는 작업: {조건}
 - push · 머지 · 배포: {조건}
 
+## Baden Monitoring
+
+> Baden(규칙 준수 모니터)을 쓰지 않으면 이 절을 지운다. 설치 · 등록은 `.claude/README.md`.
+
+- Project Name: `{projectName}`
+- 세션 시작 때 훅이 `Baden: project=… slot=…` 를 알려 준다. slot = 이 worktree 폴더 이름(본 체크아웃은 `main`).
+- 새 지시를 받으면 작업 전에 `baden_start_task` 를 부른다. **prompt 맨 앞에 `[slot]` 을 붙인다**(예: `[dev-2] #123 주문 목록`). 받은 taskId 를 이후 모든 보고에 쓴다.
+- 방향 · 계획을 정하면 `baden_plan`, 읽기 · 검색 · 수정 · 테스트 **전에** `baden_action`, 규칙 판정은 `baden_rule`, 검증은 `baden_verify`, 끝나면 `baden_complete_task`.
+- action 은 스스로 지은 snake_case, reason 은 나중에 읽어도 맥락이 보이게.
+- MCP 도구를 못 쓰는 서브에이전트는 `python scripts/baden.py report '{"action":"…","taskId":"…"}'` 로 보고한다.
+- 서버가 꺼져 있어도 작업은 막지 않는다. 훅이 「응답하지 않는다」고 알리면 사람에게 한 번 알린다.
+
 ## Git
 
 - 고친 파일만 이름으로 add 한다(`git add -A` · `git add .` 금지). 커밋 전 `git status --short`.
