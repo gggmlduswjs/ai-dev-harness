@@ -1,0 +1,23 @@
+# rules/INDEX.yaml — 지금 작업에 어떤 규칙을 읽힐지 정한다
+#
+# always   : 모든 작업에서 읽는다
+# concerns : 트리거가 맞을 때만 읽는다
+#   paths    파일 경로 glob
+#   patterns 코드에 나오는 문자열 · 정규식
+#   imports  import 문에 나오는 모듈 이름
+#   events   작업 종류(create-file, rename-file, migration …)
+#
+# 규칙은 같은 실수가 두 번 나왔을 때 더한다. 폴더를 채우려고 미리 만들지 않는다.
+# 린터 · 타입 검사가 잡는 것(포매팅 · 이름 · 안 쓰는 import)은 여기 쓰지 않는다.
+
+always:
+  - file: principles.md
+    description: 모든 코드에 적용되는 원칙
+
+concerns:
+  - id: C1
+    file: concerns/C1-unmeasured-not-zero.md
+    description: 값이 없거나 조회에 실패한 것을 0 으로 다루지 않는다 (예시 — 프로젝트에 맞게 바꾼다)
+    triggers:
+      paths: ["src/**"]
+      patterns: ["?? 0", "|| 0", "COALESCE(", "getOrDefault("]

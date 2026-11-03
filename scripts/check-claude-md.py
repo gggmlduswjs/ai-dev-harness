@@ -17,7 +17,7 @@ import time
 
 MAX_LINES = 200
 MAX_AGE_DAYS = 14
-CONVENTION_PREFIXES = ("docs/", "templates/", ".claude/rules/")  # 바뀌면 CLAUDE.md 도 봐야 하는 곳
+CONVENTION_PREFIXES = ("docs/", "templates/", "rules/")  # 바뀌면 CLAUDE.md 도 봐야 하는 곳
 
 
 def check(path, lines_only=False, max_lines=MAX_LINES, max_age_days=MAX_AGE_DAYS, now=None):
