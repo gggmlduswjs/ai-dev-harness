@@ -1,68 +1,53 @@
-# AI 개발 하네스 (AI Dev Harness)
+# AI 개발 하네스
 
-AI 에이전트(Claude Code · Codex)에게 일을 맡겨도 **화면 하나하나가 촘촘하고 일관되게** 나오도록 하는 프로젝트 시작 틀입니다. 새 프로젝트에 복사해서 `docs/` 를 채우고 시작합니다.
+AI(Claude Code · Codex)에게 일을 맡길 때 쓰는 프로젝트 시작 틀이다. 처음 만들 때도 유지보수할 때도 **같은 파일, 같은 흐름**을 쓴다.
 
-## 생각의 뼈대 — 디테일은 산문이 아니라 코드와 표에 둔다
+## 바닥 3층
 
-| 층 | 어디 | 누가 정하나 | 무엇으로 지키나 |
-|---|---|---|---|
-| 무엇을 · 왜 | `docs/PRD.md` · `docs/ROADMAP.md` | 사람 | 단계마다 「끝나는 기준」(실행 명령 · 화면 확인) |
-| 업무 규칙(돈 · 상태 · 권한) | `docs/DOMAIN.md` | 사람 | 표 한 줄 = 테스트 하나 |
-| 화면 | `docs/SCREENS.md` | 사람이 목록 · 패턴만 고름 | 패턴이 칸 · 상태를 채움 |
-| 모양 | `docs/DESIGN_SYSTEM.md` + 토큰 · 패턴 코드 | 한 번 만들고 재사용 | 토큰 밖 값 금지, 패턴마다 상태 5개 |
-| 구현 규칙 | `rules/` | 반복된 실수에서 | `rules/INDEX.yaml` 트리거 + 기계 검사 |
-| 결정 | `docs/DECISIONS.md` | 사람 | 번호 · 날짜로 덧붙이기만 |
+AI 는 대화가 끝나면 잊고, 적어 둔 지시는 빠지고, 「됐다」는 말은 증거가 아니다. 그래서 세 가지를 파일로 둔다.
 
-산문 규칙은 잘 안 지켜지고(아래 출처: 산문 규칙 위반 38%, 코드 규칙 4~17%), 코드에는 컴파일러 · 타입 · 테스트라는 공짜 검증기가 있습니다. 그래서 디테일은 가능한 한 **테스트 · 디자인시스템 코드 · 규칙 검사**로 내리고, 문서는 그 바탕이 되는 결정과 목록만 둡니다.
+| 층 | 무엇으로 | 왜 |
+|---|---|---|
+| **기억** | `CLAUDE.md`(규칙 5개) + `notes/`(progress · requests · decisions) | 새 대화가 파일만 읽고 하던 일을 이어 간다 |
+| **권한** | `.claude/settings.json` deny · allow | 「읽지 마라」라고 적는 것과 권한으로 막는 것은 다르다 |
+| **검증** | `work/<일>/acceptance.md`(합격선) + `plan.md`(「금지할 변경」 칸) | 코드를 고친 것과 사람이 결과를 본 것은 다르다 |
+
+훅 두 개가 바닥을 받친다. 세션 시작 때 `progress.md` 를 대화에 싣고(`session_start.py`), 코드만 바뀌고 `progress.md` 가 그대로면 멈추기 전에 갱신을 요청한다(`stop_check.py`).
+
+**합격 시험:** `/clear` 뒤 새 대화에 「하던 일 · 다음 할 일」을 물었을 때 파일만으로 맞게 답한다.
 
 ## 폴더
 
 ```text
 PROJECT/
-├── CLAUDE.md              AI 가 처음 읽는 안내(200줄 이하, CI 가 검사)
-├── AGENTS.md              Codex 차이만
-├── docs/                  제품의 현재 정본 — 읽는 순서는 docs/README.md
-│   ├── PRD.md  ROADMAP.md  DECISIONS.md  ARCHITECTURE.md
-│   ├── DOMAIN.md          데이터 단위 · 상태전이 · 금액 · 권한
-│   ├── SCREENS.md         화면 목록 한 장
-│   └── DESIGN_SYSTEM.md   토큰 · 패턴 · 공통 상태 · 금지 목록
-├── rules/                 구현 규칙(INDEX.yaml · principles.md · concerns/)
-├── templates/             ISSUE.md(작업 하나) · PATTERN.md(화면 패턴 하나) · INTAKE.md(남의 것 → 우리 규칙)
-├── intake/                들여오기 판정 CSV(근거로 남김)
-├── .claude/               훅(위험 명령 · CLAUDE.md 점검 · Baden 슬롯 알림 · TDD guard) — 관제: Baden · gitwatch
-├── .github/               PR 양식 · CLAUDE.md 줄 수 검사
-├── scripts/  tests/
+├── CLAUDE.md            목적 · 파일 안내 / 확인 방법 / 작업 규칙 5 / 안전 / 「구조 바꾸지 않는다」
+├── AGENTS.md            Codex 차이만
+├── .claude/             settings.json(권한 · 훅) · hooks/(session_start · stop_check)
+├── notes/               progress(순서 · 지금 · 다음) · requests(요청 원문) · decisions(무엇을 왜)
+├── work/                일 하나 = 폴더 하나(acceptance · plan). 양식은 work/_양식/
+├── briefs/              받은 자료 원본 — 고치지 않는다
+├── docs/                오래 가는 설명만: PRD · DOMAIN(업무 규칙) · ARCHITECTURE · UI_GUIDE
+└── .github/             PR 양식
 ```
 
-## 새 프로젝트 시작 순서
+진행 상태는 `notes/progress.md` 한 곳. `docs/` 에는 쓰지 않는다.
 
-1. 이 레포를 템플릿으로 새 레포를 만듭니다(`Use this template`).
-2. `docs/PRD.md` → `docs/DOMAIN.md` → `docs/SCREENS.md` → `docs/DESIGN_SYSTEM.md` → `docs/ROADMAP.md` 순서로 채웁니다. 모르는 칸은 비워 두지 말고 `?` 를 적습니다.
-3. 경쟁사 · 옛 시스템 분석이 있으면 `templates/INTAKE.md` 순서로 판정 CSV 를 만들고, 사람이 판정한 줄만 `docs/` 로 옮깁니다. 정한 것은 `docs/DECISIONS.md` 에 번호를 붙여 적습니다.
-4. `CLAUDE.md` 의 「안전」 · 「명령」 빈칸을 프로젝트 기준으로 채웁니다.
-5. 로드맵 1단계를 GitHub Issue 여러 개로 쪼갭니다(`templates/ISSUE.md`). 이슈 하나 = 화면 하나 또는 흐름 하나.
-6. 구현 → PR → 기계 검사 → 리뷰 → 머지. 같은 실수가 두 번 나오면 `rules/` 에 규칙을 더합니다.
+## 처음 개발
 
-## 일의 흐름
+1. 이 레포를 템플릿으로 새 레포를 만들고 `CLAUDE.md` 의 `{ }` 를 채운다.
+2. `docs/PRD.md` → `docs/DOMAIN.md` 를 채운다. 모르는 칸은 `?` 와 확인 질문으로 남긴다.
+3. `notes/progress.md` 「순서」에 단계와 단계마다 끝나는 기준을 적는다.
+4. 첫 일은 `work/_양식/` 을 `work/<번호-이름>/` 으로 복사해서 한다. **합격선을 먼저**, 그다음 계획.
+5. plan mode 로 계획을 받아 검토한다(범위 · 확인 방법 · 지어낸 정보 · 금지할 변경) → 구현 → 검사 명령 → 사람 확인 → `decisions` · `progress` 갱신 → PR.
 
-```text
-GitHub Issue (요구 · 패턴 · 데이터 단위 · 끝나는 기준)
-  → 실행 AI 가 구현(worktree)  ── 테스트 먼저: 돈 · 권한 · 상태 · 외부 쓰기
-  → PR → CI(테스트 · 규칙 검사 · CLAUDE.md 검사)
-  → 리뷰 AI 판정(mergeable / needs_review / blocked) — 구현 AI 와 다른 에이전트
-  → 사람 머지 → 이슈 닫힘(PR 본문 Closes #N)
-```
+## 유지보수
 
-- **실행 상태는 GitHub Issues 한 곳.** 진행률 · 우선순위 · 마감을 문서에 적지 않습니다.
-- **AI 의 「됐다」는 증거가 아닙니다.** 끝나는 기준의 명령 결과 · CI · 화면 확인이 증거입니다.
-- **진짜 병목은 검토하는 사람의 시간입니다.** 기계 검사를 늘려 사람이 볼 것을 줄입니다.
+- 요청이 오면 `notes/requests.md` 에 한 줄. 작은 일은 바로 고치고 `progress` 에 한 줄, 큰 일(돈 · DB · 여러 날)은 `work/` 폴더.
+- 같은 실수가 두 번 나오면 **하나만 더한다**: `CLAUDE.md` 규칙 한 줄 · `settings.json` deny 한 줄 · 훅 하나.
+- 끝난 `work/` 폴더는 남길 결정을 `decisions` 로 옮기고 지운다(git 이력에 남는다).
+- **구조는 바꾸지 않는다.** 새 강의 · 새 도구를 배워도 위 「더하기」로만 넣는다. 구조를 바꿔야 하면 `decisions` 에 이유를 적고 승인받는다.
 
 ## 출처
 
-이 틀은 세 갈래를 합친 것입니다.
-
-| 출처 | 가져온 것 |
-|---|---|
-| [jha0313/harness_framework](https://github.com/jha0313/harness_framework) | 시작 문서 틀(PRD · ARCHITECTURE · ADR · UI_GUIDE), 「AC 는 실행 가능한 명령」, 작업 단위 자기완결성 |
-| 김민태 [ibare](https://github.com/ibare) — `jindesk` · `aperi21` · `baden` | 문서는 데이터 단위 · 결정 누적 · 읽는 순서 색인, 「결정적인 일은 코드, 판단은 에이전트」, `rules/` 구조(INDEX.yaml 트리거 · principles · concerns), 규칙 준수율 측정. 수치(산문 38% · 코드 4~17%)는 강의 「AI 에이전트 중심 개발 워크플로우」(패스트캠퍼스, 2026) 소개서 |
-| 레이시스 디자인시스템(design.leysys.com) 구조 | 토큰 3층(원시 → 의미 → 부품), 강조 4단, 테마 = 속성 몇 개, 화면 디테일은 패턴이 채운다, 기계 판정 UI 계약. 값과 코드는 가져오지 않고 구조만 참고 |
+- 바닥 3층 · 작업 규칙 5개 · notes · 합격선 · 「금지할 변경」: 송태영 「문제 정의부터 해결까지, AI Agent 로 끝내는 FDE 실무」 2~3장(moreon-lab 실습)
+- 업무 규칙 표(표 한 줄 = 테스트 하나) · UI 가이드 8칸: [jha0313/harness_framework](https://github.com/jha0313/harness_framework), 김민태 강의

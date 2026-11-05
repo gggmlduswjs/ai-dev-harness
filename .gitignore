@@ -1,6 +1,3 @@
-# superpowers 작업 장부(작업 중 임시)
-.superpowers/
-
 # 언어/도구 공통
 __pycache__/
 *.pyc

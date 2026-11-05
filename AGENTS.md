@@ -1,10 +1,6 @@
-# Codex · 다른 에이전트
+# AGENTS.md — Codex · 다른 에이전트
 
-작업 전에 **`CLAUDE.md` 를 먼저 읽는다.** 목표 · 규칙 · 안전 · 완료 조건은 `CLAUDE.md` 가 정본이고, 이 파일에는 Claude Code 와 다른 점만 둔다.
+`CLAUDE.md` 를 먼저 읽는다. 규칙 · 안전 · 완료 조건은 거기가 정본이다.
 
-- `.claude/settings.json` 의 훅은 Claude Code 용이다. Codex 에서 자동으로 돈다고 가정하지 않는다. 위험 명령 · 커밋 범위는 스스로 지킨다.
-- 작업 전후 브랜치와 `git status --short` 를 확인한다. 남의 변경을 보존하고 고친 파일만 이름으로 stage 한다.
-- 샌드박스 · 권한 때문에 막히면 우회하지 말고, 막힌 명령과 필요한 권한을 보고한다.
-- 인계를 받았으면 인계문을 사실로 단정하지 않는다. Git 상태 · 관련 파일 · 검증 결과를 다시 확인한다.
-- Baden: SessionStart 훅이 돌지 않으니 작업 시작 때 `python scripts/baden.py session` 을 직접 실행해 slot 을 확인하고, `CLAUDE.md` 「Baden Monitoring」 대로 보고한다.
-- 이슈에 적힌 범위와 결정을 다시 기획하지 않는다. 실제 코드 · 문서와 충돌하면 고치지 말고 보고한다.
+- `.claude/settings.json` 의 권한과 훅은 Claude Code 에서만 돈다. 세션을 시작할 때 `notes/progress.md` 를 직접 읽고, 끝날 때 직접 갱신한다.
+- `.env` 읽기 금지 · force push 금지 · `git add -A` 금지는 스스로 지킨다. 막히면 우회하지 말고 보고한다.
