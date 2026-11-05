@@ -1,6 +1,6 @@
 # 아키텍처
 
-**지금 구현된 구조만** 적는다. 계획은 [ROADMAP.md](ROADMAP.md), 고른 이유는 [DECISIONS.md](DECISIONS.md).
+**지금 구현된 구조만** 적는다. 순서는 [notes/progress.md](../notes/progress.md), 고른 이유는 [notes/decisions.md](../notes/decisions.md).
 
 ## 한 장 그림
 

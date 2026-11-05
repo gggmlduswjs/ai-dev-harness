@@ -1,46 +1,42 @@
 {
-  "extraKnownMarketplaces": {
-    "gg-tools": {
-      "source": { "source": "github", "repo": "gggmlduswjs/gg-tools" }
-    }
-  },
-  "enabledPlugins": {
-    "superpowers@claude-plugins-official": true,
-    "gg-skills@gg-tools": true
-  },
   "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git add -A:*)",
+      "Bash(git add .:*)",
+      "Bash(git add --all:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(rm -rf:*)"
+    ],
+    "ask": [
+      "Bash(git push:*)"
+    ],
     "allow": [
-      "Bash(python scripts/baden.py report:*)"
+      "Edit(./notes/**)",
+      "Edit(./work/**)"
     ]
   },
   "hooks": {
     "SessionStart": [
       {
-        "matcher": "startup|resume",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python \"${CLAUDE_PROJECT_DIR}/.claude/hooks/claude-md-check.py\""
-          }
-        ]
-      },
-      {
         "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "python \"${CLAUDE_PROJECT_DIR}/scripts/baden.py\" session"
+            "command": "python \"${CLAUDE_PROJECT_DIR}/.claude/hooks/session_start.py\""
           }
         ]
       }
     ],
-    "PreToolUse": [
+    "Stop": [
       {
-        "matcher": "Bash|PowerShell",
         "hooks": [
           {
             "type": "command",
-            "command": "python \"${CLAUDE_PROJECT_DIR}/.claude/hooks/guardrail.py\""
+            "command": "python \"${CLAUDE_PROJECT_DIR}/.claude/hooks/stop_check.py\""
           }
         ]
       }
