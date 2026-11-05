@@ -16,7 +16,7 @@
     ],
     "allow": [
       "Edit(./notes/**)",
-      "Edit(./work/**)"
+      "Edit(./plans/**)"
     ]
   },
   "hooks": {

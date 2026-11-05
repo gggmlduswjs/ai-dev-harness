@@ -2,7 +2,7 @@ Closes #
 
 ## 무엇 · 왜
 
-- 합격선: `work/{폴더}/acceptance.md` · 요청: `notes/requests.md` {R번호}
+- 합의서: `notes/acceptance.md` · 계획: `plans/{일}.md` · 요청: `notes/requests.md` {번호}
 
 ## 확인 — 실행한 명령과 결과
 
