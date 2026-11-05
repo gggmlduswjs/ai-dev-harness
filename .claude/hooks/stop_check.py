@@ -10,7 +10,7 @@ import os
 import subprocess
 import sys
 
-SKIP = ("notes/", "work/", "briefs/", ".claude/")
+SKIP = ("notes/", "plans/", "briefs/", ".claude/")
 REASON = ("코드가 바뀌었는데 notes/progress.md 가 갱신되지 않았다. "
           "지금 상태 · 다음 할 일 · 확인한 것/못 한 것을 갱신하고, 결정이 있었으면 notes/decisions.md 에도 적어라.")
 
